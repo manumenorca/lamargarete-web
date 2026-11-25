@@ -14,6 +14,12 @@ Web estática de La Margarete, bar con jardín en Ciutadella (Menorca). Se publi
 3. Haz commit en `main` con un mensaje en español ("Sube el mojito a 9 €") y push. En 1-2 minutos está publicado.
 4. Dile a Manu qué cambiaste.
 
+## Idiomas (muy importante)
+La web está en **español, inglés y francés** (muchos clientes son franceses e ingleses). La web elige sola el idioma del móvil del visitante y tiene botones ES / EN / FR arriba. Se puede enlazar a un idioma concreto con `?lang=en` o `?lang=fr`.
+- En `contenido.js`, un texto traducido se escribe `{ es: "...", en: "...", fr: "..." }`. Nombres propios y marcas van como texto normal.
+- **Cada vez que cambies o añadas un texto, ponlo en los tres idiomas.** Manu escribe en español: tradúcelo tú con naturalidad (inglés británico, francés de Francia).
+- Los textos fijos del diseño (títulos de sección, botones, formulario) están en el diccionario `UI` de `index.html`.
+
 ## Ojo
 - Ya no se hacen conciertos (no está permitido). No anunciar música en directo; solo sesiones de DJ (viernes y sábados).
 

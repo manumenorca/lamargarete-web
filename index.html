@@ -3,11 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>La Margarete · Bar y jardín en Ciutadella, Menorca</title>
-<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, sesiones de DJ los viernes y sábados, eventos privados y prebodas.">
+<title>La Margarete · Jardín de copas en Ciutadella, Menorca</title>
+<meta name="description" content="Bar con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, DJs los viernes y sábados, eventos privados y prebodas.">
 <meta property="og:title" content="La Margarete, Ciutadella">
 <meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
+<link rel="alternate" hreflang="es" href="?lang=es">
+<link rel="alternate" hreflang="en" href="?lang=en">
+<link rel="alternate" hreflang="fr" href="?lang=fr">
 <meta name="theme-color" content="#16291F">
 <meta property="og:image" content="fotos/jardin-lleno-noche.jpg">
 <link rel="icon" type="image/png" href="img/favicon.png">
@@ -237,22 +240,36 @@
   .redes a:hover{border-color:var(--naranja);color:var(--naranja)}
   .redes svg{width:18px;height:18px}
   .legal{width:100%;color:rgba(237,240,233,.5);font-size:.85rem}
+
+  /* ---------- Idiomas ---------- */
+  .nav ul{margin-left:auto}
+  .idiomas{display:flex;gap:.1rem;margin-left:1rem}
+  .idiomas button{font:inherit;font-size:.8rem;font-weight:700;letter-spacing:.02em;color:var(--cal);background:none;border:1.5px solid transparent;border-radius:999px;min-width:2.4rem;min-height:2.4rem;padding:0 .4rem;cursor:pointer;opacity:.7}
+  .idiomas button:hover{opacity:1}
+  .idiomas button[aria-pressed="true"]{border-color:var(--naranja);color:var(--naranja);opacity:1}
+  @media (max-width:520px){.nav ul li.mov-oculto{display:none}.idiomas{margin-left:.5rem}}
+  @media (max-width:400px){.idiomas button{min-width:2.2rem;font-size:.76rem;padding:0 .25rem}}
 </style>
 </head>
 <body>
 
 <div class="aviso" id="aviso" hidden></div>
 
-<nav class="nav" aria-label="Principal">
+<nav class="nav" aria-label="Principal" id="navPrincipal">
   <div class="envoltura">
     <a class="marca" href="#inicio"><img src="img/margarita.png" alt="">la margarete</a>
     <ul>
-      <li><a href="#carta">Carta</a></li>
-      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#carta" data-t="navCarta"></a></li>
+      <li class="mov-oculto"><a href="#eventos" data-t="navEventos"></a></li>
       <li class="opc"><a href="#agenda">DJs</a></li>
-      <li class="opc"><a href="#fotos">Fotos</a></li>
-      <li><a href="#donde">Dónde</a></li>
+      <li class="opc"><a href="#fotos" data-t="navFotos"></a></li>
+      <li class="mov-oculto"><a href="#donde" data-t="navDonde"></a></li>
     </ul>
+    <div class="idiomas" role="group" id="idiomas">
+      <button type="button" data-lang="es" lang="es" aria-label="Español">ES</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
+      <button type="button" data-lang="fr" lang="fr" aria-label="Français">FR</button>
+    </div>
   </div>
 </nav>
 
@@ -264,9 +281,9 @@
     <p class="lema" id="lema"></p>
     <p class="hoy" id="hoy"></p>
     <div class="botones">
-      <a class="boton lleno" href="#carta">Ver la carta</a>
-      <a class="boton linea" href="#eventos">Eventos y prebodas</a>
-      <a class="boton linea" id="btnMapa" href="#donde" target="_blank" rel="noopener">Cómo llegar</a>
+      <a class="boton lleno" href="#carta" data-t="verCarta"></a>
+      <a class="boton linea" href="#eventos" data-t="eventosTitulo"></a>
+      <a class="boton linea" id="btnMapa" href="#donde" target="_blank" rel="noopener" data-t="comoLlegar"></a>
     </div>
   </div>
 </header>
@@ -276,48 +293,49 @@
   <section class="bloque puerta-sec" id="puerta" aria-labelledby="t-puerta">
     <div class="envoltura rejilla">
       <div>
-        <h2 id="t-puerta">No te vas a creer lo que hay detrás de esta puerta</h2>
-        <p class="intro">Desde la calle parece una entrada más del casco antiguo: una pared de piedra, una puerta de cristal y un pasillo estrecho.</p>
+        <h2 id="t-puerta" data-t="puertaTitulo"></h2>
+        <p class="intro" data-t="puertaIntro"></p>
         <p class="revelado" id="revelado" aria-live="polite"></p>
-        <button class="otra-vez" id="cerrarPuerta" type="button" hidden>Cerrar la puerta</button>
+        <button class="otra-vez" id="cerrarPuerta" type="button" data-t="cerrarPuerta" hidden></button>
       </div>
-      <button class="puerta" id="puertaBtn" type="button" aria-pressed="false" aria-label="Abrir la puerta">
+      <button class="puerta" id="puertaBtn" type="button" aria-pressed="false">
         <span class="hoja-p izq"></span><span class="hoja-p der"></span>
-        <span class="pista">Abre la puerta</span>
-        <span class="pie">Esto es lo que hay detrás</span>
+        <span class="pista" data-t="abrePuerta"></span>
+        <span class="pie" data-t="puertaPie"></span>
       </button>
     </div>
   </section>
+
   <section class="bloque" id="carta" aria-labelledby="t-carta">
     <div class="envoltura">
       <div class="carta-cab">
         <div>
-          <h2 id="t-carta">La carta</h2>
+          <h2 id="t-carta" data-t="cartaTitulo"></h2>
         </div>
-        <div class="pestanas" role="tablist" aria-label="Secciones de la carta" id="pestanas"></div>
+        <div class="pestanas" role="tablist" id="pestanas"></div>
       </div>
       <ul class="platos" id="platos" role="tabpanel"></ul>
-      <p class="nota-carta"><span id="notaCarta"></span> Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.</p>
-      <p id="pdf" hidden style="margin-top:1rem"><a class="boton oscuro" target="_blank" rel="noopener">Descargar la carta en PDF</a></p>
+      <p class="nota-carta"><span id="notaCarta"></span> <span data-t="notaPrecios"></span></p>
+      <p id="pdf" hidden style="margin-top:1rem"><a class="boton oscuro" target="_blank" rel="noopener" data-t="pdf"></a></p>
     </div>
   </section>
 
   <section class="bloque eventos-priv" id="eventos" aria-labelledby="t-eventos">
     <div class="envoltura rejilla">
       <div>
-        <h2 id="t-eventos">Eventos y prebodas</h2>
+        <h2 id="t-eventos" data-t="eventosTitulo"></h2>
         <p class="intro" id="eventosTexto"></p>
         <p class="alt" id="eventosAlt"></p>
       </div>
       <form class="solicitud" id="solicitud" novalidate>
-        <label>Fecha<input type="date" name="fecha" required></label>
-        <label>Número de personas<input type="number" name="personas" min="1" inputmode="numeric" required></label>
-        <label class="ancho">Tipo de evento<select name="tipo" id="tipoEvento" required></select></label>
-        <label>Tu nombre<input type="text" name="nombre" autocomplete="name" required></label>
-        <label>Email o teléfono<input type="text" name="contacto" autocomplete="email" required></label>
-        <label class="ancho">Algo más que debamos saber<textarea name="mensaje" placeholder="Horario, si queréis DJ, comida…"></textarea></label>
-        <button class="boton" type="submit">Enviar solicitud</button>
-        <p class="ayuda" id="ayudaForm">Se abrirá tu aplicación de correo con todo ya escrito; solo tienes que darle a enviar.</p>
+        <label><span data-t="fFecha"></span><input type="date" name="fecha" required></label>
+        <label><span data-t="fPersonas"></span><input type="number" name="personas" min="1" inputmode="numeric" required></label>
+        <label class="ancho"><span data-t="fTipo"></span><select name="tipo" id="tipoEvento" required></select></label>
+        <label><span data-t="fNombre"></span><input type="text" name="nombre" autocomplete="name" required></label>
+        <label><span data-t="fContacto"></span><input type="text" name="contacto" autocomplete="email" required></label>
+        <label class="ancho"><span data-t="fMensaje"></span><textarea name="mensaje" data-t-ph="fMensajePh"></textarea></label>
+        <button class="boton" type="submit" data-t="fEnviar"></button>
+        <p class="ayuda" id="ayudaForm"></p>
       </form>
     </div>
   </section>
@@ -325,17 +343,17 @@
   <section class="bloque agenda" id="agenda" aria-labelledby="t-agenda">
     <div class="envoltura rejilla">
       <div>
-        <h2 id="t-agenda">Viernes y sábados, DJ</h2>
-        <p class="intro">Cuando cae la noche, la antigua fábrica se llena.</p>
+        <h2 id="t-agenda" data-t="djTitulo"></h2>
+        <p class="intro" data-t="djIntro"></p>
         <div id="listaDJ"></div>
       </div>
-      <img class="foto-dj" id="fotoDJ" alt="Noche de DJ en La Margarete, con la barra llena" loading="lazy" hidden>
+      <img class="foto-dj" id="fotoDJ" loading="lazy" hidden>
     </div>
   </section>
 
   <section class="bloque" id="fotos" aria-labelledby="t-fotos">
     <div class="envoltura">
-      <h2 id="t-fotos">La antigua fábrica</h2>
+      <h2 id="t-fotos" data-t="fabricaTitulo"></h2>
       <p class="intro" id="presentacion"></p>
       <div class="galeria" id="galeria"></div>
       <div class="retratos" id="retratos" hidden><div><h3 class="retratos-t" id="retratosTitulo"></h3><p id="retratosTexto"></p><p id="retratosEtiqueta" class="etiqueta" hidden><a class="boton oscuro" target="_blank" rel="noopener"></a></p></div><div class="fila" id="retratosFila"></div></div>
@@ -345,7 +363,7 @@
   <section class="bloque donde" id="donde" aria-labelledby="t-donde">
     <div class="envoltura rejilla">
       <div>
-        <h2 id="t-donde">Dónde estamos</h2>
+        <h2 id="t-donde" data-t="dondeTitulo"></h2>
         <p class="direccion" id="direccion"></p>
         <ul class="horario" id="horario"></ul>
         <p class="reservas" id="reservas" style="margin-bottom:1rem;font-weight:500"></p>
@@ -357,8 +375,8 @@
           <path d="M60 -10 C70 80 40 160 80 310"/><path d="M190 -10 C200 90 170 200 210 310"/><path d="M320 -10 C310 100 340 190 300 310"/>
           <circle cx="205" cy="215" r="10" fill="#FF8A00" stroke="none"/>
         </svg>
-        <strong id="mapaTitulo">En pleno casco antiguo</strong>
-        <span>Abrir en Google Maps</span>
+        <strong id="mapaTitulo"></strong>
+        <span data-t="abrirMaps"></span>
       </a>
     </div>
   </section>
@@ -367,7 +385,7 @@
 <footer>
   <div class="envoltura">
     <div class="marca"><img src="img/margarita.png" alt="">la margarete</div>
-    <ul class="redes" id="redes" aria-label="Redes sociales"></ul>
+    <ul class="redes" id="redes"></ul>
     <p class="legal" id="legal"></p>
   </div>
 </footer>
@@ -379,30 +397,121 @@
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-  // Aviso
-  if (M.aviso) { $("aviso").textContent = M.aviso; $("aviso").hidden = false; }
+  // ---------- Textos fijos de la web, en los tres idiomas ----------
+  const UI = {
+    titulo:       { es: "La Margarete · Jardín de copas en Ciutadella, Menorca", en: "La Margarete · Garden bar in Ciutadella, Menorca", fr: "La Margarete · Bar-jardin à Ciutadella, Minorque" },
+    descripcion:  { es: "Bar con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, DJs los viernes y sábados, eventos privados y prebodas.", en: "Garden bar in an old shoe factory in the old town of Ciutadella, Menorca. Drinks, DJs on Fridays and Saturdays, private events and pre-wedding parties.", fr: "Bar-jardin dans une ancienne fabrique de chaussures de la vieille ville de Ciutadella, Minorque. Boissons, DJ le vendredi et le samedi, événements privés et pré-mariages." },
+    idioma:       { es: "Idioma", en: "Language", fr: "Langue" },
+    navCarta:     { es: "Carta", en: "Menu", fr: "Carte" },
+    navEventos:   { es: "Eventos", en: "Events", fr: "Événements" },
+    navFotos:     { es: "Fotos", en: "Photos", fr: "Photos" },
+    navDonde:     { es: "Dónde", en: "Find us", fr: "Accès" },
+    verCarta:     { es: "Ver la carta", en: "See the menu", fr: "Voir la carte" },
+    comoLlegar:   { es: "Cómo llegar", en: "Get directions", fr: "Itinéraire" },
+    puertaTitulo: { es: "No te vas a creer lo que hay detrás de esta puerta", en: "You won't believe what's behind this door", fr: "Vous n'allez pas croire ce qui se cache derrière cette porte" },
+    puertaIntro:  { es: "Desde la calle parece una entrada más del casco antiguo: una pared de piedra, una puerta de cristal y un pasillo estrecho.", en: "From the street it looks like any other doorway in the old town: a stone wall, a glass door and a narrow corridor.", fr: "Depuis la rue, on dirait une entrée comme les autres de la vieille ville : un mur de pierre, une porte vitrée et un couloir étroit." },
+    revelado:     { es: "Sorpresa: el jardín interior más grande de Menorca, a la sombra de un ficus enorme.", en: "Surprise: the largest inner garden in Menorca, in the shade of a huge ficus tree.", fr: "Surprise : le plus grand jardin intérieur de Minorque, à l'ombre d'un immense ficus." },
+    abrePuerta:   { es: "Abre la puerta", en: "Open the door", fr: "Ouvrez la porte" },
+    cerrarPuerta: { es: "Cerrar la puerta", en: "Close the door", fr: "Fermer la porte" },
+    puertaPie:    { es: "Esto es lo que hay detrás", en: "This is what's behind it", fr: "Voilà ce qui se cache derrière" },
+    cartaTitulo:  { es: "La carta", en: "The menu", fr: "La carte" },
+    cartaSecciones:{ es: "Secciones de la carta", en: "Menu sections", fr: "Rubriques de la carte" },
+    notaPrecios:  { es: "Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.", en: "Prices in euros, VAT included. If you have any allergies, please ask at the bar.", fr: "Prix en euros, TVA incluse. En cas d'allergie, demandez-nous au bar." },
+    pdf:          { es: "Descargar la carta en PDF", en: "Download the menu (PDF)", fr: "Télécharger la carte (PDF)" },
+    eventosTitulo:{ es: "Eventos y prebodas", en: "Events & pre-wedding parties", fr: "Événements et pré-mariages" },
+    eventosAlt:   { es: "También puedes escribirnos directamente a", en: "You can also email us at", fr: "Vous pouvez aussi nous écrire à" },
+    fFecha:       { es: "Fecha", en: "Date", fr: "Date" },
+    fPersonas:    { es: "Número de personas", en: "Number of guests", fr: "Nombre de personnes" },
+    fTipo:        { es: "Tipo de evento", en: "Type of event", fr: "Type d'événement" },
+    fElige:       { es: "Elige uno", en: "Choose one", fr: "Choisissez" },
+    fNombre:      { es: "Tu nombre", en: "Your name", fr: "Votre nom" },
+    fContacto:    { es: "Email o teléfono", en: "Email or phone", fr: "E-mail ou téléphone" },
+    fMensaje:     { es: "Algo más que debamos saber", en: "Anything else we should know", fr: "Autre chose à nous dire" },
+    fMensajePh:   { es: "Horario, si queréis DJ, comida…", en: "Timing, whether you'd like a DJ, food…", fr: "Horaires, DJ, repas…" },
+    fEnviar:      { es: "Enviar solicitud", en: "Send request", fr: "Envoyer la demande" },
+    fAyuda:       { es: "Se abrirá tu aplicación de correo con todo ya escrito; solo tienes que darle a enviar.", en: "Your email app will open with everything filled in; just hit send.", fr: "Votre messagerie s'ouvrira avec tout déjà rempli ; il ne reste plus qu'à envoyer." },
+    fFalta:       { es: "Falta un dato:", en: "Missing:", fr: "Il manque :" },
+    fAbierto:     { es: "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a", en: "Your email app should now be open with your request. If not, email us at", fr: "Votre messagerie devrait s'ouvrir avec la demande. Sinon, écrivez-nous à" },
+    mAsunto:      { es: "{tipo} el {fecha} ({n} personas)", en: "{tipo} on {fecha} ({n} guests)", fr: "{tipo} le {fecha} ({n} personnes)" },
+    mSaludo:      { es: "Hola,\n\nOs escribo para un evento en La Margarete:", en: "Hello,\n\nI'm writing about an event at La Margarete:", fr: "Bonjour,\n\nJe vous écris pour un événement à La Margarete :" },
+    djTitulo:     { es: "Viernes y sábados, DJ", en: "DJs on Fridays and Saturdays", fr: "DJ le vendredi et le samedi" },
+    djIntro:      { es: "Cuando cae la noche, la antigua fábrica se llena.", en: "When night falls, the old factory fills up.", fr: "À la nuit tombée, l'ancienne fabrique se remplit." },
+    djAlt:        { es: "Noche de DJ en La Margarete, con la barra llena", en: "DJ night at La Margarete, with a packed bar", fr: "Soirée DJ à La Margarete, bar bondé" },
+    seguirIg:     { es: "Seguir en Instagram", en: "Follow us on Instagram", fr: "Suivez-nous sur Instagram" },
+    fabricaTitulo:{ es: "La antigua fábrica", en: "The old factory", fr: "L'ancienne fabrique" },
+    estampitaAlt: { es: "Estampita antigua de una actriz, pegada en una ventana de la fábrica", en: "Old picture of an actress stuck on a factory window", fr: "Ancienne image d'une actrice collée sur une fenêtre de la fabrique" },
+    dondeTitulo:  { es: "Dónde estamos", en: "Find us", fr: "Où nous trouver" },
+    mapaTitulo:   { es: "En pleno casco antiguo", en: "Right in the old town", fr: "En pleine vieille ville" },
+    buscaCartel:  { es: "Busca este cartel", en: "Look for this sign", fr: "Cherchez cette enseigne" },
+    abrirMaps:    { es: "Abrir en Google Maps", en: "Open in Google Maps", fr: "Ouvrir dans Google Maps" },
+    redes:        { es: "Redes sociales", en: "Social media", fr: "Réseaux sociaux" },
+    // Etiquetas de precio de la carta
+    "Copa":       { es: "Copa", en: "Glass", fr: "Verre" },
+    "Botella":    { es: "Botella", en: "Bottle", fr: "Bouteille" },
+    "Copa ancha": { es: "Copa ancha", en: "Large glass", fr: "Grand verre" },
+    "Jarra de 1 litro": { es: "Jarra de 1 litro", en: "1-litre jug", fr: "Pichet d'1 litre" },
+    "Chupito":    { es: "Chupito", en: "Shot", fr: "Shot" },
+    "Combinado":  { es: "Combinado", en: "With mixer", fr: "Long drink" },
+  };
+  const IDIOMAS = ["es", "en", "fr"];
+  const LOCALE = { es: "es-ES", en: "en-GB", fr: "fr-FR" };
+  let L = "es";
 
-  // Portada
-  $("lema").textContent = M.lema;
-  if (M.horario && M.horario[0]) $("hoy").textContent = M.horario.filter(h => !/cerrado/i.test(h.horas)).map(h => `${h.dias}: ${h.horas.charAt(0).toLowerCase() + h.horas.slice(1)}`).join(". ");
+  // Texto en el idioma actual (si falta, español)
+  const T = v => v == null ? "" : (typeof v === "object" && !Array.isArray(v)) ? (v[L] ?? v.es ?? "") : String(v);
+  const U = k => T(UI[k]);
+  const etiqueta = t => typeof t === "string" && UI[t] ? U(t) : T(t);
+  const euros = v => typeof v === "number" ? v.toLocaleString(LOCALE[L], { style: "currency", currency: "EUR", minimumFractionDigits: Number.isInteger(v) ? 0 : 2 }) : esc(T(v));
+
+  function elegirIdioma() {
+    const q = new URLSearchParams(location.search).get("lang");
+    if (IDIOMAS.includes(q)) return q;
+    try { const g = localStorage.getItem("idioma"); if (IDIOMAS.includes(g)) return g; } catch (e) {}
+    for (const n of (navigator.languages || [navigator.language || "es"])) {
+      const c = String(n).slice(0, 2).toLowerCase();
+      if (c === "es" || c === "ca" || c === "gl" || c === "eu") return "es";
+      if (c === "fr") return "fr";
+      if (c === "en") return "en";
+    }
+    return "en"; // resto de visitantes extranjeros: inglés
+  }
+
+  // ---------- Partes fijas (no dependen del idioma) ----------
   if (M.portada) { const f = $("fotoPortada"); f.style.backgroundImage = `url("${M.portada}")`; f.hidden = false; }
   $("btnMapa").href = M.mapa; $("tarjetaMapa").href = M.mapa;
-
-  // Carta
-  const euros = v => typeof v === "number" ? v.toLocaleString("es-ES", {minimumFractionDigits: Number.isInteger(v) ? 0 : 2, maximumFractionDigits: 2}) + " €" : esc(v);
-  const secciones = M.carta.filter(s => (!s.soloVerano || M.temporadaVerano) && s.platos.length);
-  $("notaCarta").textContent = M.notaCarta || "";
-  const pest = $("pestanas"), lista = $("platos");
-  function mostrar(i){
-    [...pest.children].forEach((b,j) => { b.setAttribute("aria-selected", i===j); b.tabIndex = i===j ? 0 : -1; });
-    lista.setAttribute("aria-label", secciones[i].seccion);
-    lista.innerHTML = secciones[i].platos.map(p => p.titulo
-      ? `<li class="subtitulo">${esc(p.titulo)}</li>`
-      : `<li class="plato"><span class="n">${esc(p.nombre)}</span><span class="p">${p.precio != null ? euros(p.precio) : ""}</span>${p.desc ? `<span class="d">${esc(p.desc)}</span>` : ""}${p.precios ? `<span class="varios">${p.precios.map(([t,v]) => `<span>${esc(t)}<b>${euros(v)}</b></span>`).join("")}</span>` : ""}</li>`).join("");
+  if (M.fotoDJ) { const f = $("fotoDJ"); f.src = M.fotoDJ; f.hidden = false; }
+  if (M.fotoEntrada) {
+    const t = $("tarjetaMapa");
+    t.classList.add("con-foto"); t.style.backgroundImage = `url("${M.fotoEntrada}")`;
+    t.querySelector("svg").remove();
   }
-  secciones.forEach((s,i) => {
+  $("direccion").innerHTML = `${esc(M.direccion)}<br>${esc(M.ciudad)}`;
+  const ig = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
+  const iconos = {
+    Instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+    Facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
+    TikTok:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.4 2.4 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3V16a6 6 0 1 1-6-6v3.4A2.6 2.6 0 1 0 12.6 16V3H16z"/></svg>',
+    WhatsApp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/><path d="M9 9.5c.3 2 2.2 4.3 4.6 5 .6.2 1.4-.6 1.6-1.1l-1.6-.9-.8.7c-1-.4-2-1.4-2.4-2.4l.7-.8-.8-1.6c-.6.1-1.4.6-1.3 1.1z" fill="currentColor" stroke="none"/></svg>'
+  };
+  $("redes").innerHTML = (M.redes || []).filter(r => r.url).map(r =>
+    `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${iconos[r.nombre] || ""}${esc(r.nombre)}</a></li>`).join("");
+  $("legal").textContent = `© ${new Date().getFullYear()} La Margarete, Ciutadella de Menorca`;
+
+  // ---------- Carta ----------
+  const secciones = M.carta.filter(s => (!s.soloVerano || M.temporadaVerano) && s.platos.length);
+  const pest = $("pestanas"), lista = $("platos");
+  let seccionActual = 0;
+  function mostrar(i) {
+    seccionActual = i;
+    [...pest.children].forEach((b, j) => { b.setAttribute("aria-selected", i === j); b.tabIndex = i === j ? 0 : -1; });
+    lista.setAttribute("aria-label", T(secciones[i].seccion));
+    lista.innerHTML = secciones[i].platos.map(p => p.titulo
+      ? `<li class="subtitulo">${esc(T(p.titulo))}</li>`
+      : `<li class="plato"><span class="n">${esc(T(p.nombre))}</span><span class="p">${p.precio != null ? euros(p.precio) : ""}</span>${T(p.desc) ? `<span class="d">${esc(T(p.desc))}</span>` : ""}${p.precios ? `<span class="varios">${p.precios.map(([t, v]) => `<span>${esc(etiqueta(t))}<b>${euros(v)}</b></span>`).join("")}</span>` : ""}</li>`).join("");
+  }
+  secciones.forEach((s, i) => {
     const b = document.createElement("button");
-    b.type = "button"; b.role = "tab"; b.textContent = s.seccion;
+    b.type = "button"; b.setAttribute("role", "tab");
     b.addEventListener("click", () => mostrar(i));
     b.addEventListener("keydown", e => {
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -412,105 +521,125 @@
     });
     pest.appendChild(b);
   });
-  if (secciones.length) mostrar(0);
-  if (M.cartaPdf) { const p = $("pdf"); p.querySelector("a").href = M.cartaPdf; p.hidden = false; }
 
-  // Agenda
-  const hoy = new Date(); hoy.setHours(0,0,0,0);
-  const prox = (M.agenda || []).filter(e => new Date(e.fecha + "T23:59") >= hoy).sort((a,b) => a.fecha.localeCompare(b.fecha));
-  const ig = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
-  if (prox.length) {
-    $("listaDJ").innerHTML = `<ul class="eventos">` + prox.map(e => {
-      const d = new Date(e.fecha + "T12:00");
-      const dia = d.toLocaleDateString("es-ES",{day:"numeric"});
-      const resto = d.toLocaleDateString("es-ES",{weekday:"short", month:"short"});
-      return `<li class="evento"><div class="dia">${dia}<small>${esc(resto)}</small></div><div><div class="t">${esc(e.titulo)}</div><div class="meta">${esc([e.tipo, e.hora].filter(Boolean).join(", "))}</div></div></li>`;
-    }).join("") + `</ul>`;
-  } else {
-    $("listaDJ").innerHTML = `<div class="vacio"><p>${esc(M.agendaVacia)}</p>${ig ? `<p style="margin-top:.75rem"><a href="${esc(ig.url)}" target="_blank" rel="noopener">Seguir en Instagram</a></p>` : ""}</div>`;
-  }
-
-
-  // Eventos y prebodas
+  // ---------- Formulario de eventos ----------
   const E = M.eventos || {};
-  $("eventosTexto").textContent = E.texto || "";
-  if (E.email) $("eventosAlt").innerHTML = `También puedes escribirnos directamente a <a href="mailto:${esc(E.email)}">${esc(E.email)}</a>.`;
-  $("tipoEvento").innerHTML = `<option value="">Elige uno</option>` + (E.tipos || []).map(t => `<option>${esc(t)}</option>`).join("");
   $("solicitud").addEventListener("submit", ev => {
     ev.preventDefault();
     const f = ev.target, d = Object.fromEntries(new FormData(f));
     const falta = [...f.querySelectorAll("[required]")].find(i => !i.value.trim());
-    if (falta) { $("ayudaForm").textContent = "Falta un dato: " + falta.closest("label").firstChild.textContent.trim() + "."; falta.focus(); return; }
-    const fecha = new Date(d.fecha + "T12:00").toLocaleDateString("es-ES", {weekday:"long", day:"numeric", month:"long", year:"numeric"});
-    const asunto = `${d.tipo} el ${fecha} (${d.personas} personas)`;
-    const cuerpo = `Hola,\n\nOs escribo para un evento en La Margarete:\n\nTipo de evento: ${d.tipo}\nFecha: ${fecha}\nNúmero de personas: ${d.personas}\nNombre: ${d.nombre}\nContacto: ${d.contacto}\n\n${d.mensaje || ""}`;
+    if (falta) { $("ayudaForm").textContent = U("fFalta") + " " + falta.closest("label").querySelector("span").textContent.trim() + "."; falta.focus(); return; }
+    const fecha = new Date(d.fecha + "T12:00").toLocaleDateString(LOCALE[L], { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+    const asunto = U("mAsunto").replace("{tipo}", d.tipo).replace("{fecha}", fecha).replace("{n}", d.personas);
+    const cuerpo = `${U("mSaludo")}\n\n${U("fTipo")}: ${d.tipo}\n${U("fFecha")}: ${fecha}\n${U("fPersonas")}: ${d.personas}\n${U("fNombre")}: ${d.nombre}\n${U("fContacto")}: ${d.contacto}\n\n${d.mensaje || ""}`;
     location.href = `mailto:${E.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-    $("ayudaForm").textContent = "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a " + E.email + ".";
+    $("ayudaForm").textContent = U("fAbierto") + " " + E.email + ".";
   });
 
-
-  // La puerta
+  // ---------- La puerta ----------
+  let puertaAbierta = false;
+  function ponPuerta(abierta) {
+    puertaAbierta = abierta;
+    const b = $("puertaBtn");
+    b.classList.toggle("abierta", abierta);
+    b.setAttribute("aria-pressed", abierta);
+    b.setAttribute("aria-label", abierta ? U("cerrarPuerta") : U("abrePuerta"));
+    $("revelado").textContent = abierta ? U("revelado") : "";
+    $("cerrarPuerta").hidden = !abierta;
+  }
   if (M.puerta) {
     const b = $("puertaBtn");
     b.style.backgroundImage = `url("${M.puerta.detras}")`;
     b.querySelectorAll(".hoja-p").forEach(h => h.style.backgroundImage = `url("${M.puerta.foto}")`);
-    const pon = abierta => {
-      b.classList.toggle("abierta", abierta);
-      b.setAttribute("aria-pressed", abierta);
-      b.setAttribute("aria-label", abierta ? "Cerrar la puerta" : "Abrir la puerta");
-      $("revelado").textContent = abierta ? "Sorpresa: el jardín interior más grande de Menorca, a la sombra de un ficus enorme." : "";
-      $("cerrarPuerta").hidden = !abierta;
-    };
-    b.addEventListener("click", () => pon(!b.classList.contains("abierta")));
-    $("cerrarPuerta").addEventListener("click", () => pon(false));
+    b.addEventListener("click", () => ponPuerta(!puertaAbierta));
+    $("cerrarPuerta").addEventListener("click", () => ponPuerta(false));
   } else { $("puerta").hidden = true; }
-  if (M.fotoDJ) { const f = $("fotoDJ"); f.src = M.fotoDJ; f.hidden = false; }
 
-  // Fotos
-  $("presentacion").textContent = M.presentacion;
-  const fotos = M.fotos || [];
-  const huecos = ["El jardín y el ficus", "La barra", "Un cóctel", "Sesión de DJ", "La fábrica", "Una noche de verano"];
-  $("galeria").innerHTML = fotos.length
-    ? fotos.map(f => `<figure><img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">${f.texto ? `<figcaption>${esc(f.texto)}</figcaption>` : ""}</figure>`).join("")
-    : huecos.map(t => `<figure class="hueco"><span>Foto: ${t}</span></figure>`).join("");
+  // ---------- Todo lo que cambia con el idioma ----------
+  function pintar() {
+    document.documentElement.lang = L;
+    document.title = U("titulo");
+    document.querySelector('meta[name="description"]').content = U("descripcion");
+    document.querySelectorAll("[data-t]").forEach(el => el.textContent = U(el.dataset.t));
+    document.querySelectorAll("[data-t-ph]").forEach(el => el.placeholder = U(el.dataset.tPh));
+    document.querySelectorAll("#idiomas button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === L));
+    $("idiomas").setAttribute("aria-label", U("idioma"));
+    pest.setAttribute("aria-label", U("cartaSecciones"));
+    $("redes").setAttribute("aria-label", U("redes"));
 
-  // Retratos
-  if (M.retratos && M.retratos.fotos && M.retratos.fotos.length) {
-    $("retratosTitulo").textContent = M.retratos.titulo || "";
-    $("retratosTexto").textContent = M.retratos.texto || "";
-    const insta = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
-    if (M.retratos.etiqueta && insta) { const e = $("retratosEtiqueta"); e.querySelector("a").href = insta.url; e.querySelector("a").textContent = M.retratos.etiqueta; e.hidden = false; }
-    $("retratosFila").innerHTML = M.retratos.fotos.map(f => `<img src="${esc(f)}" alt="Estampita antigua de una actriz, pegada en una ventana de la fábrica" loading="lazy">`).join("");
-    $("retratos").hidden = false;
+    // Aviso
+    const aviso = T(M.aviso);
+    $("aviso").textContent = aviso; $("aviso").hidden = !aviso;
+
+    // Portada
+    $("lema").textContent = T(M.lema);
+    $("hoy").textContent = (M.horario || []).map(h => { const hs = T(h.horas); return `${T(h.dias)}${L === "fr" ? " : " : ": "}${hs.charAt(0).toLowerCase() + hs.slice(1)}`; }).join(". ");
+
+    // Carta
+    [...pest.children].forEach((b, i) => b.textContent = T(secciones[i].seccion));
+    $("notaCarta").textContent = T(M.notaCarta);
+    if (secciones.length) mostrar(seccionActual);
+    if (M.cartaPdf) { const p = $("pdf"); p.querySelector("a").href = M.cartaPdf; p.hidden = false; }
+
+    // Eventos
+    $("eventosTexto").textContent = T(E.texto);
+    $("eventosAlt").innerHTML = E.email ? `${esc(U("eventosAlt"))} <a href="mailto:${esc(E.email)}">${esc(E.email)}</a>.` : "";
+    const sel = $("tipoEvento"), elegido = sel.selectedIndex;
+    sel.innerHTML = `<option value="">${esc(U("fElige"))}</option>` + (E.tipos || []).map(t => `<option>${esc(T(t))}</option>`).join("");
+    sel.selectedIndex = Math.max(0, elegido);
+    $("ayudaForm").textContent = U("fAyuda");
+
+    // Puerta
+    ponPuerta(puertaAbierta);
+
+    // Agenda
+    const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    const prox = (M.agenda || []).filter(e => new Date(e.fecha + "T23:59") >= hoy).sort((a, b) => a.fecha.localeCompare(b.fecha));
+    if (prox.length) {
+      $("listaDJ").innerHTML = `<ul class="eventos">` + prox.map(e => {
+        const d = new Date(e.fecha + "T12:00");
+        const dia = d.toLocaleDateString(LOCALE[L], { day: "numeric" });
+        const resto = d.toLocaleDateString(LOCALE[L], { weekday: "short", month: "short" });
+        return `<li class="evento"><div class="dia">${dia}<small>${esc(resto)}</small></div><div><div class="t">${esc(T(e.titulo))}</div><div class="meta">${esc([T(e.tipo), e.hora].filter(Boolean).join(", "))}</div></div></li>`;
+      }).join("") + `</ul>`;
+    } else {
+      $("listaDJ").innerHTML = `<div class="vacio"><p>${esc(T(M.agendaVacia))}</p>${ig ? `<p style="margin-top:.75rem"><a href="${esc(ig.url)}" target="_blank" rel="noopener">${esc(U("seguirIg"))}</a></p>` : ""}</div>`;
+    }
+    $("fotoDJ").alt = U("djAlt");
+
+    // Fotos
+    $("presentacion").textContent = T(M.presentacion);
+    $("galeria").innerHTML = (M.fotos || []).map(f => `<figure><img src="${esc(f.archivo)}" alt="${esc(T(f.texto))}" loading="lazy">${T(f.texto) ? `<figcaption>${esc(T(f.texto))}</figcaption>` : ""}</figure>`).join("");
+
+    // Las actrices de la ventana
+    const R = M.retratos;
+    if (R && R.fotos && R.fotos.length) {
+      $("retratosTitulo").textContent = T(R.titulo);
+      $("retratosTexto").textContent = T(R.texto);
+      if (R.etiqueta && ig) { const e = $("retratosEtiqueta"); e.querySelector("a").href = ig.url; e.querySelector("a").textContent = R.etiqueta; e.hidden = false; }
+      $("retratosFila").innerHTML = R.fotos.map(f => `<img src="${esc(f)}" alt="${esc(U("estampitaAlt"))}" loading="lazy">`).join("");
+      $("retratos").hidden = false;
+    }
+
+    // Dónde
+    $("mapaTitulo").textContent = M.fotoEntrada ? U("buscaCartel") : U("mapaTitulo");
+    $("horario").innerHTML = (M.horario || []).map(h => `<li><span>${esc(T(h.dias))}</span><span>${esc(T(h.horas))}</span></li>`).join("");
+    $("reservas").textContent = T(M.reservas);
+    const c = [];
+    if (M.email) c.push(`Email: <a href="mailto:${esc(M.email)}">${esc(M.email)}</a>`);
+    $("contacto").innerHTML = c.join("<br>");
   }
-  // Cartel de la entrada
-  if (M.fotoEntrada) {
-    const t = $("tarjetaMapa");
-    t.classList.add("con-foto"); t.style.backgroundImage = `url("${M.fotoEntrada}")`;
-    t.querySelector("svg").remove(); $("mapaTitulo").textContent = "Busca este cartel";
+
+  function cambiarIdioma(nuevo) {
+    L = nuevo;
+    try { localStorage.setItem("idioma", L); } catch (e) {}
+    try { const u = new URL(location.href); u.searchParams.set("lang", L); history.replaceState(null, "", u); } catch (e) {}
+    pintar();
   }
+  document.querySelectorAll("#idiomas button").forEach(b => b.addEventListener("click", () => cambiarIdioma(b.dataset.lang)));
 
-  // Dónde
-  $("direccion").innerHTML = `${esc(M.direccion)}<br>${esc(M.ciudad)}`;
-  $("horario").innerHTML = M.horario.map(h => `<li><span>${esc(h.dias)}</span><span>${esc(h.horas)}</span></li>`).join("");
-  $("reservas").textContent = M.reservas || "";
-  const c = [];
-  if (M.telefono) c.push(`Teléfono: <a href="tel:${M.telefono.replace(/\s/g,"")}">${esc(M.telefono)}</a>`);
-  if (M.email) c.push(`Email: <a href="mailto:${esc(M.email)}">${esc(M.email)}</a>`);
-  $("contacto").innerHTML = c.join("<br>");
-
-  // Redes
-  const iconos = {
-    Instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
-    Facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
-    TikTok:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.4 2.4 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3V16a6 6 0 1 1-6-6v3.4A2.6 2.6 0 1 0 12.6 16V3H16z"/></svg>',
-    "X (Twitter)":'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.9L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>',
-    WhatsApp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/><path d="M9 9.5c.3 2 2.2 4.3 4.6 5 .6.2 1.4-.6 1.6-1.1l-1.6-.9-.8.7c-1-.4-2-1.4-2.4-2.4l.7-.8-.8-1.6c-.6.1-1.4.6-1.3 1.1z" fill="currentColor" stroke="none"/></svg>'
-  };
-  $("redes").innerHTML = (M.redes || []).filter(r => r.url).map(r =>
-    `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${iconos[r.nombre] || ""}${esc(r.nombre)}</a></li>`).join("");
-
-  $("legal").textContent = `© ${new Date().getFullYear()} La Margarete, Ciutadella de Menorca`;
+  L = elegirIdioma();
+  pintar();
 })();
 </script>
 </body>
