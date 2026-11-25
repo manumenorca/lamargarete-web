@@ -44,8 +44,7 @@ window.MARGARETE = {
   // Los precios van como número (5.5 = 5,50 €).
   // soloVerano: true -> esa sección solo se ve si temporadaVerano es true (cócteles y comida)
   temporadaVerano: false, // cócteles y comida: solo en verano (desde junio)
-  cartaPdf: "carta/carta-bebidas.pdf", // vacío ("") = sin botón de descarga
-  cartaPdfSoloVerano: true, // el PDF lleva los cócteles: el botón solo sale en verano
+  cartaPdf: "", // sin PDF descargable: la carta está en la propia web
   notaCarta: "Suplemento de Red Bull en cualquier consumición: +1 €.",
   carta: [
     {
