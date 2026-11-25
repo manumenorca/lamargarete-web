@@ -327,7 +327,7 @@
     pest.appendChild(b);
   });
   if (secciones.length) mostrar(0);
-  if (M.cartaPdf) { const p = $("pdf"); p.querySelector("a").href = M.cartaPdf; p.hidden = false; }
+  if (M.cartaPdf && (!M.cartaPdfSoloVerano || M.temporadaVerano)) { const p = $("pdf"); p.querySelector("a").href = M.cartaPdf; p.hidden = false; }
 
   // Agenda
   const hoy = new Date(); hoy.setHours(0,0,0,0);

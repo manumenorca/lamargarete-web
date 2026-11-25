@@ -22,4 +22,4 @@ Web estática de La Margarete, bar con jardín en Ciutadella (Menorca). Se publi
 - Sesiones de DJ: añadir a `agenda` con fecha AAAA-MM-DD; las fechas pasadas se ocultan solas.
 - Precios: como número, sin "€" (5.5 = 5,50 €; la web lo formatea). Varios precios: `precios: [["Copa", 4], ["Botella", 20]]`. Subtítulo dentro de una sección: `{ titulo: "Blancos" }`.
 - Carta en PDF: el botón de descarga apunta a `carta/carta-bebidas.pdf`. Si Manu manda un PDF nuevo, sustitúyelo con el mismo nombre y actualiza también la carta de `contenido.js` para que coincidan.
-- Cócteles y comida: solo en verano (desde junio). Para activarlos, `temporadaVerano: true` (y rellenar "Para comer"; una sección vacía no sale). En invierno, `false`.
+- Cócteles y comida: solo en verano (desde junio). Para activarlos, `temporadaVerano: true` (esto también muestra el botón del PDF, que lleva los cócteles) (y rellenar "Para comer"; una sección vacía no sale). En invierno, `false`.

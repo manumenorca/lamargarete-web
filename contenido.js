@@ -45,6 +45,7 @@ window.MARGARETE = {
   // soloVerano: true -> esa sección solo se ve si temporadaVerano es true (cócteles y comida)
   temporadaVerano: false, // cócteles y comida: solo en verano (desde junio)
   cartaPdf: "carta/carta-bebidas.pdf", // vacío ("") = sin botón de descarga
+  cartaPdfSoloVerano: true, // el PDF lleva los cócteles: el botón solo sale en verano
   notaCarta: "Suplemento de Red Bull en cualquier consumición: +1 €.",
   carta: [
     {
@@ -194,7 +195,7 @@ window.MARGARETE = {
     { archivo: "fotos/jardin-ficus.jpg", texto: "Bajo el ficus" },
     { archivo: "fotos/vista-jardin.jpg", texto: "El jardín desde arriba" },
     { archivo: "fotos/jardin-noche.jpg", texto: "Al caer la tarde" },
-    { archivo: "fotos/raices-ficus.jpg", texto: "Las raíces del ficus" },
+    { archivo: "fotos/raices-ficus.jpg", texto: "El ficus que se comió una bici antigua" },
     { archivo: "fotos/jardin-mesas.jpg", texto: "Las mesas del jardín" },
   ],
 };
