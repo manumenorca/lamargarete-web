@@ -9,17 +9,22 @@
 <meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#16291F">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2316291F'/><text x='32' y='46' font-family='Arial Black,sans-serif' font-size='38' text-anchor='middle' fill='%23D8B27A'>M</text></svg>">
+<meta property="og:image" content="img/margarita.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Figtree:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  @font-face{font-family:"Marketing Script";src:url("fuentes/MarketingScript.ttf") format("truetype");font-display:swap}
   :root{
     --hoja:#16291F;      /* verde ficus oscuro */
     --ficus:#2C4A36;     /* verde hoja */
     --cal:#EDF0E9;       /* pared encalada */
     --mares:#D8B27A;     /* piedra de marès */
-    --buganvilla:#B3315F;/* acento */
+    --naranja:#FF8A00;   /* centro de la margarita */
+    --naranja-texto:#B35400; /* naranja legible sobre fondo claro */
+    --logo:"Marketing Script", cursive;
     --tinta:#1A221D;
     --gris:#5C6860;
     --display:"Big Shoulders Display", "Arial Narrow", sans-serif;
@@ -30,42 +35,45 @@
   body{font-family:var(--texto);font-size:1.0625rem;line-height:1.55;color:var(--tinta);background:var(--cal);-webkit-font-smoothing:antialiased}
   img{max-width:100%;display:block}
   a{color:inherit}
-  :focus-visible{outline:3px solid var(--buganvilla);outline-offset:3px;border-radius:4px}
+  :focus-visible{outline:3px solid var(--naranja);outline-offset:3px;border-radius:4px}
   .envoltura{width:min(1120px,100% - 2.5rem);margin-inline:auto}
 
   /* ---------- Aviso ---------- */
-  .aviso{background:var(--buganvilla);color:#fff;text-align:center;padding:.55rem 1rem;font-weight:500;font-size:.95rem}
+  .aviso{background:var(--naranja);color:var(--tinta);text-align:center;padding:.55rem 1rem;font-weight:500;font-size:.95rem}
 
   /* ---------- Navegación ---------- */
   .nav{position:sticky;top:0;z-index:20;background:rgba(22,41,31,.92);backdrop-filter:blur(8px);color:var(--cal)}
   .nav .envoltura{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:3.5rem}
-  .nav .marca{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:.01em;text-decoration:none;line-height:1}
+  .nav .marca{font-family:var(--logo);font-size:clamp(1.5rem,5vw,1.9rem);white-space:nowrap;text-decoration:none;line-height:1;display:flex;align-items:center;gap:.45rem}
+  .nav .marca img{width:30px;height:auto}
   .nav ul{display:flex;gap:1.4rem;list-style:none}
   .nav ul a{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85}
   .nav ul a:hover{opacity:1;color:var(--mares)}
-  @media (max-width:560px){.nav ul{gap:1rem}.nav ul li.opc{display:none}}
+  @media (max-width:560px){.nav ul{gap:.9rem;font-size:.92rem}.nav ul li.opc{display:none}}
+  @media (max-width:480px){.nav ul li.opc2{display:none}}
 
   /* ---------- Portada ---------- */
   .portada{position:relative;background:var(--hoja);color:var(--cal);overflow:hidden;min-height:min(92vh,820px);display:flex;align-items:flex-end;isolation:isolate}
   .portada .foto{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
   .portada .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,31,.25) 0%,rgba(22,41,31,.85) 70%,var(--hoja) 100%)}
-  .portada .sombra{position:absolute;z-index:-1;right:-8%;top:-10%;width:75%;max-width:900px;color:var(--ficus);opacity:.75;pointer-events:none}
-  .portada .envoltura{padding-block:6rem 3rem}
-  .rotulo{font-family:var(--display);font-weight:900;line-height:.82;letter-spacing:-.005em;font-size:clamp(4.6rem,19vw,15.5rem);color:var(--cal)}
-  .rotulo span{display:block}
-  .rotulo .la{font-weight:500;font-size:.42em;color:var(--mares);line-height:1;margin-bottom:.06em}
+  .portada .flor{position:absolute;z-index:-1;right:-3%;top:1.5rem;width:min(40vw,500px);pointer-events:none;filter:drop-shadow(0 18px 40px rgba(0,0,0,.35))}
+  @media (max-width:700px){.portada .flor{right:-18%;top:1.5rem;width:72vw}}
+  .portada .envoltura{padding-block:clamp(14rem,30vw,22rem) 3rem}
+  .rotulo{font-family:var(--logo);font-weight:400;line-height:.95;font-size:clamp(4.2rem,13vw,9.5rem);color:var(--cal);text-shadow:0 4px 30px rgba(22,41,31,.6)}
+  .rotulo span{display:inline-block}
   .portada .lema{font-size:clamp(1.15rem,2.4vw,1.45rem);max-width:30ch;margin-top:1.6rem;line-height:1.35}
-  .portada .hoy{margin-top:.6rem;color:var(--mares);font-weight:500}
+  .portada .hoy{margin-top:.6rem;color:var(--naranja);font-weight:500}
   .botones{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
   .boton{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--mares);transition:background .2s,color .2s}
-  .boton.lleno{background:var(--mares);color:var(--hoja)}
+  .boton.lleno{background:var(--naranja);border-color:var(--naranja);color:var(--tinta)}
   .boton.lleno:hover{background:var(--cal);border-color:var(--cal)}
-  .boton.linea{color:var(--cal)}
-  .boton.linea:hover{background:var(--mares);color:var(--hoja)}
+  .boton.linea{color:var(--cal);border-color:var(--cal)}
+  .boton.linea:hover{background:var(--cal);color:var(--hoja)}
   @media (prefers-reduced-motion:no-preference){
-    .rotulo span{animation:sube .9s cubic-bezier(.2,.7,.2,1) both}
-    .rotulo span:nth-child(2){animation-delay:.12s}
-    @keyframes sube{from{transform:translateY(.25em);opacity:0}to{transform:none;opacity:1}}
+    .portada .flor{animation:gira 1.4s cubic-bezier(.2,.8,.2,1) both}
+    .rotulo span{animation:sube .9s .25s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes gira{from{transform:rotate(-120deg) scale(.6);opacity:0}to{transform:none;opacity:1}}
+    @keyframes sube{from{transform:translateY(.2em);opacity:0}to{transform:none;opacity:1}}
   }
 
   /* ---------- Secciones ---------- */
@@ -82,7 +90,7 @@
   .platos{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:3.5rem}
   .plato{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:1.05rem 0;border-bottom:1px solid rgba(26,34,29,.14)}
   .plato .n{font-weight:700;font-size:1.1rem}
-  .plato .p{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;color:var(--buganvilla);align-self:start}
+  .plato .p{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;color:var(--naranja-texto);align-self:start}
   .plato .d{grid-column:1/-1;color:var(--gris);font-size:.97rem}
   .nota-carta{margin-top:1.75rem;color:var(--gris);font-size:.93rem}
 
@@ -92,12 +100,12 @@
   .eventos{list-style:none;margin-top:2rem}
   .evento{display:grid;grid-template-columns:6.5rem 1fr;gap:1.5rem;align-items:center;padding:1.3rem 0;border-top:1px solid rgba(216,178,122,.3)}
   .evento:last-child{border-bottom:1px solid rgba(216,178,122,.3)}
-  .evento .dia{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:.85;color:var(--mares)}
+  .evento .dia{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:.85;color:var(--naranja)}
   .evento .dia small{display:block;font-weight:500;font-size:1.05rem;line-height:1.2;margin-top:.3rem}
   .evento .t{font-weight:700;font-size:1.25rem}
   .evento .meta{color:rgba(237,240,233,.7);font-size:.95rem}
   .vacio{margin-top:2rem;padding:1.75rem;border:1.5px dashed rgba(216,178,122,.5);border-radius:14px;max-width:40rem}
-  .vacio a{color:var(--mares);font-weight:700}
+  .vacio a{color:var(--naranja);font-weight:700}
 
   /* ---------- Fotos ---------- */
   .galeria{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(130px,17vw,220px);gap:.75rem;margin-top:2.25rem}
@@ -121,22 +129,23 @@
   .horario{list-style:none;margin-bottom:1.75rem}
   .horario li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(26,34,29,.14);max-width:26rem}
   .horario li span:last-child{font-weight:700}
-  .contacto a{font-weight:700;text-decoration-color:var(--buganvilla);text-underline-offset:3px}
+  .contacto a{font-weight:700;text-decoration-color:var(--naranja);text-underline-offset:3px}
   .tarjeta-mapa{display:block;text-decoration:none;background:var(--ficus);color:var(--cal);border-radius:18px;padding:2rem;min-height:15rem;position:relative;overflow:hidden}
   .tarjeta-mapa svg{position:absolute;inset:0;width:100%;height:100%;opacity:.35}
   .tarjeta-mapa strong{position:relative;font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;display:block}
   .tarjeta-mapa span{position:relative;display:inline-block;margin-top:.75rem;font-weight:500;border-bottom:2px solid var(--mares)}
-  .tarjeta-mapa:hover span{color:var(--mares)}
+  .tarjeta-mapa:hover span{color:var(--naranja)}
   .boton.oscuro{color:var(--hoja);border-color:var(--hoja)}
   .boton.oscuro:hover{background:var(--hoja);color:var(--cal)}
 
   /* ---------- Pie ---------- */
   footer{background:var(--tinta);color:var(--cal);padding-block:3.5rem 2.5rem}
   footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:end}
-  footer .marca{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,6vw,4rem);line-height:.85;color:var(--mares)}
+  footer .marca{font-family:var(--logo);font-size:clamp(3rem,7vw,4.5rem);line-height:1;color:var(--cal);display:flex;align-items:center;gap:1rem}
+  footer .marca img{width:clamp(56px,8vw,84px)}
   .redes{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none}
   .redes a{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.05rem;border-radius:999px;border:1.5px solid rgba(237,240,233,.35);text-decoration:none;font-weight:500}
-  .redes a:hover{border-color:var(--mares);color:var(--mares)}
+  .redes a:hover{border-color:var(--naranja);color:var(--naranja)}
   .redes svg{width:18px;height:18px}
   .legal{width:100%;color:rgba(237,240,233,.5);font-size:.85rem}
 </style>
@@ -147,10 +156,10 @@
 
 <nav class="nav" aria-label="Principal">
   <div class="envoltura">
-    <a class="marca" href="#inicio">La Margarete</a>
+    <a class="marca" href="#inicio"><img src="img/margarita.png" alt="">La Margarete</a>
     <ul>
       <li><a href="#carta">Carta</a></li>
-      <li><a href="#agenda">Agenda</a></li>
+      <li class="opc2"><a href="#agenda">Agenda</a></li>
       <li class="opc"><a href="#fotos">Fotos</a></li>
       <li><a href="#donde">Dónde</a></li>
     </ul>
@@ -159,18 +168,9 @@
 
 <header class="portada" id="inicio">
   <div class="foto" id="fotoPortada" hidden></div>
-  <!-- Sombra de hojas de ficus -->
-  <svg class="sombra" viewBox="0 0 600 600" aria-hidden="true" fill="currentColor">
-    <g transform="rotate(-18 300 300)">
-      <path d="M300 40c70 40 110 120 95 200-12 62-55 105-95 130-40-25-83-68-95-130-15-80 25-160 95-200z"/>
-      <path d="M470 210c60 10 105 60 110 120 4 50-20 90-45 112-35-8-80-30-100-80-25-62-10-120 35-152z"/>
-      <path d="M140 230c-45 25-70 80-60 132 8 42 38 72 62 85 28-14 60-44 66-92 8-58-20-105-68-125z"/>
-      <path d="M330 380c55 15 90 65 88 115-2 38-25 66-45 80-30-8-62-32-72-75-12-52 0-95 29-120z"/>
-      <path d="M298 75v300M478 225l-50 190M150 250l20 170M335 395l20 170" stroke="#16291F" stroke-width="4" fill="none" opacity=".5"/>
-    </g>
-  </svg>
+  <img class="flor" src="img/margarita.png" alt="">
   <div class="envoltura">
-    <h1 class="rotulo"><span class="la">La</span><span>Margarete</span></h1>
+    <h1 class="rotulo"><span>La Margarete</span></h1>
     <p class="lema" id="lema"></p>
     <p class="hoy" id="hoy"></p>
     <div class="botones">
@@ -224,7 +224,7 @@
         <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="#D8B27A" stroke-width="2">
           <path d="M-10 60 C80 80 120 40 210 70 S340 50 420 90"/><path d="M-10 160 C60 150 140 190 230 160 S350 140 420 170"/>
           <path d="M60 -10 C70 80 40 160 80 310"/><path d="M190 -10 C200 90 170 200 210 310"/><path d="M320 -10 C310 100 340 190 300 310"/>
-          <circle cx="205" cy="215" r="10" fill="#B3315F" stroke="none"/>
+          <circle cx="205" cy="215" r="10" fill="#FF8A00" stroke="none"/>
         </svg>
         <strong>En pleno casco antiguo</strong>
         <span>Abrir en Google Maps</span>
@@ -235,7 +235,7 @@
 
 <footer>
   <div class="envoltura">
-    <div class="marca">La<br>Margarete</div>
+    <div class="marca"><img src="img/margarita.png" alt="">La Margarete</div>
     <ul class="redes" id="redes" aria-label="Redes sociales"></ul>
     <p class="legal" id="legal"></p>
   </div>
