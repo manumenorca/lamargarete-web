@@ -11,7 +11,7 @@ window.MARGARETE = {
   // ---------- Datos básicos ----------
   lema: "Jardín de copas en el casco antiguo de Ciutadella",
   presentacion:
-    "Dentro, la nave de la antigua fábrica de zapatos conserva sus vigas, el suelo original y los restos de donde iban las correas de la zapatería. Fuera, el jardín interior más grande de Menorca, a la sombra de un ficus enorme.",
+    "Dentro, la nave de la antigua fábrica de zapatos conserva sus vigas, el suelo original y restos de los soportes de las poleas que, con correas, movían las máquinas de la zapatería. Fuera, el jardín interior más grande de Menorca, a la sombra de un ficus enorme.",
   direccion: "Carrer de Sant Joan Baptista, 6",
   ciudad: "07760 Ciutadella de Menorca",
   telefono: "", // no se publica
