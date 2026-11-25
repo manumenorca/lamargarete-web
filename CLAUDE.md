@@ -16,7 +16,7 @@ Web estática de La Margarete, bar con jardín en Ciutadella (Menorca). Se publi
 
 ## Idiomas (muy importante)
 La web está en **catalán, castellano, inglés y francés**. El catalán es imprescindible: estamos en Menorca (se habla menorquín) y hay muchísimos clientes de Barcelona. Muchos clientes son franceses e ingleses.
-- Idioma por defecto: móviles en catalán o castellano → **catalán** (con botón ES para pasar a castellano); francés → francés; resto → inglés. Botones CA / ES / EN / FR arriba. Enlace a un idioma concreto: `?lang=ca`, `?lang=es`, `?lang=en`, `?lang=fr`.
+- Idioma por defecto: **siempre catalán** (lo ha pedido Manu); cada visitante cambia con los botones y la web recuerda su elección. Botones CA / ES / EN / FR arriba. Enlace a un idioma concreto: `?lang=ca`, `?lang=es`, `?lang=en`, `?lang=fr`.
 - En `contenido.js`, un texto traducido se escribe `{ es: "...", ca: "...", en: "...", fr: "..." }`. Nombres propios y marcas van como texto normal.
 - **Cada vez que cambies o añadas un texto, ponlo en los cuatro idiomas.** Manu escribe en castellano: tradúcelo tú con naturalidad. Catalán con formas de Baleares (organitzam, anunciam, padrina, aferrar, cercar), inglés británico, francés de Francia.
 - Los textos fijos del diseño (títulos de sección, botones, formulario) están en el diccionario `UI` de `index.html`.

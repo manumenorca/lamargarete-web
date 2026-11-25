@@ -470,14 +470,7 @@
     const q = new URLSearchParams(location.search).get("lang");
     if (IDIOMAS.includes(q)) return q;
     try { const g = localStorage.getItem("idioma"); if (IDIOMAS.includes(g)) return g; } catch (e) {}
-    for (const n of (navigator.languages || [navigator.language || "es"])) {
-      const c = String(n).slice(0, 2).toLowerCase();
-      // Móviles en catalán o en castellano: la web sale en catalán (con botón para pasar a castellano)
-      if (c === "ca" || c === "es" || c === "gl" || c === "eu") return "ca";
-      if (c === "fr") return "fr";
-      if (c === "en") return "en";
-    }
-    return "en"; // resto de visitantes extranjeros: inglés
+    return "ca"; // por defecto, siempre en catalán (cada visitante puede cambiarlo con los botones)
   }
 
   // ---------- Partes fijas (no dependen del idioma) ----------
