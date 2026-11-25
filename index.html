@@ -262,10 +262,10 @@
     <a class="marca" href="#inicio"><img src="img/margarita.png" alt="">la margarete</a>
     <ul>
       <li><a href="#carta" data-t="navCarta"></a></li>
-      <li class="mov-oculto"><a href="#eventos" data-t="navEventos"></a></li>
       <li class="opc"><a href="#agenda">DJs</a></li>
       <li class="opc"><a href="#fotos" data-t="navFotos"></a></li>
       <li class="mov-oculto"><a href="#donde" data-t="navDonde"></a></li>
+      <li class="mov-oculto"><a href="#eventos" data-t="navEventos"></a></li>
     </ul>
     <div class="idiomas" role="group" id="idiomas">
       <button type="button" data-lang="ca" lang="ca" aria-label="Català">CA</button>
@@ -285,8 +285,8 @@
     <p class="hoy" id="hoy"></p>
     <div class="botones">
       <a class="boton lleno" href="#carta" data-t="verCarta"></a>
-      <a class="boton linea" href="#eventos" data-t="eventosTitulo"></a>
       <a class="boton linea" id="btnMapa" href="#donde" target="_blank" rel="noopener" data-t="comoLlegar"></a>
+      <a class="boton linea" href="#eventos" data-t="eventosTitulo"></a>
     </div>
   </div>
 </header>
@@ -323,25 +323,6 @@
     </div>
   </section>
 
-  <section class="bloque eventos-priv" id="eventos" aria-labelledby="t-eventos">
-    <div class="envoltura rejilla">
-      <div>
-        <h2 id="t-eventos" data-t="eventosTitulo"></h2>
-        <p class="intro" id="eventosTexto"></p>
-        <p class="alt" id="eventosAlt"></p>
-      </div>
-      <form class="solicitud" id="solicitud" novalidate>
-        <label><span data-t="fFecha"></span><input type="date" name="fecha" required></label>
-        <label><span data-t="fPersonas"></span><input type="number" name="personas" min="1" inputmode="numeric" required></label>
-        <label class="ancho"><span data-t="fTipo"></span><select name="tipo" id="tipoEvento" required></select></label>
-        <label><span data-t="fNombre"></span><input type="text" name="nombre" autocomplete="name" required></label>
-        <label><span data-t="fContacto"></span><input type="text" name="contacto" autocomplete="email" required></label>
-        <label class="ancho"><span data-t="fMensaje"></span><textarea name="mensaje" data-t-ph="fMensajePh"></textarea></label>
-        <button class="boton" type="submit" data-t="fEnviar"></button>
-        <p class="ayuda" id="ayudaForm"></p>
-      </form>
-    </div>
-  </section>
 
   <section class="bloque agenda" id="agenda" aria-labelledby="t-agenda">
     <div class="envoltura rejilla">
@@ -381,6 +362,26 @@
         <strong id="mapaTitulo"></strong>
         <span data-t="abrirMaps"></span>
       </a>
+    </div>
+  </section>
+
+  <section class="bloque eventos-priv" id="eventos" aria-labelledby="t-eventos">
+    <div class="envoltura rejilla">
+      <div>
+        <h2 id="t-eventos" data-t="eventosTitulo"></h2>
+        <p class="intro" id="eventosTexto"></p>
+        <p class="alt" id="eventosAlt"></p>
+      </div>
+      <form class="solicitud" id="solicitud" novalidate>
+        <label><span data-t="fFecha"></span><input type="date" name="fecha" required></label>
+        <label><span data-t="fPersonas"></span><input type="number" name="personas" min="1" inputmode="numeric" required></label>
+        <label class="ancho"><span data-t="fTipo"></span><select name="tipo" id="tipoEvento" required></select></label>
+        <label><span data-t="fNombre"></span><input type="text" name="nombre" autocomplete="name" required></label>
+        <label><span data-t="fContacto"></span><input type="text" name="contacto" autocomplete="email" required></label>
+        <label class="ancho"><span data-t="fMensaje"></span><textarea name="mensaje" data-t-ph="fMensajePh"></textarea></label>
+        <button class="boton" type="submit" data-t="fEnviar"></button>
+        <p class="ayuda" id="ayudaForm"></p>
+      </form>
     </div>
   </section>
 </main>
