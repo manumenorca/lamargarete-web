@@ -258,7 +258,7 @@ window.MARGARETE = {
   // La sección "No te vas a creer lo que hay detrás de esta puerta"
   puerta: {
     foto: "fotos/puerta.jpg",       // lo que se ve desde la calle
-    detras: "fotos/jardin-lleno-noche.jpg", // lo que aparece al abrirla
+    detras: "fotos/detras-puerta.jpg", // lo que aparece al abrirla
   },
 
   // Foto de la sección de DJs
