@@ -3,7 +3,7 @@
 //  Todo lo que cambia a menudo está aquí: carta, horario,
 //  agenda, fotos y redes. El diseño está en index.html.
 //  Para cambiar algo, pídeselo a Claude ("sube el mojito a 9 €",
-//  "añade concierto el sábado"...) o edítalo tú mismo.
+//  "añade DJ el sábado"...) o edítalo tú mismo.
 // ============================================================
 
 window.MARGARETE = {
@@ -11,7 +11,7 @@ window.MARGARETE = {
   // ---------- Datos básicos ----------
   lema: "Jardín de copas en el casco antiguo de Ciutadella",
   presentacion:
-    "Escondido en el casco antiguo de Ciutadella está el jardín más grande de Menorca: una antigua fábrica de zapatos con un patio a la sombra de un ficus enorme. Cócteles, música en directo, DJs y teatro.",
+    "Escondido en el casco antiguo de Ciutadella está el jardín más grande de Menorca: una antigua fábrica de zapatos con un patio a la sombra de un ficus enorme. Cócteles y sesiones de DJ los viernes y sábados.",
   direccion: "Carrer de Sant Joan Baptista, 6",
   ciudad: "07760 Ciutadella de Menorca",
   telefono: "+34 619 842 438",
@@ -22,7 +22,7 @@ window.MARGARETE = {
   // aviso: un mensaje que sale arriba del todo (vacío = no sale nada)
   aviso: "",
   horario: [
-    { dias: "Viernes", horas: "Desde las 19:00" },
+    { dias: "Viernes", horas: "Desde las 20:00" },
     { dias: "Sábado (tardeo)", horas: "Desde las 16:00" },
   ],
   reservas: "Sin reservas: por orden de llegada.",
@@ -92,10 +92,10 @@ window.MARGARETE = {
   // ---------- Agenda ----------
   // fecha en formato AAAA-MM-DD. Las fechas pasadas se ocultan solas.
   agenda: [
-    // { fecha: "2026-12-12", hora: "22:00", titulo: "Concierto: nombre del grupo", tipo: "Música en directo" },
+    // { fecha: "2026-12-12", hora: "21:00", titulo: "Nombre del DJ", tipo: "Sesión de DJ" },
   ],
   agendaVacia:
-    "Ahora mismo no hay nada programado. Los conciertos, DJs y obras los anunciamos primero en Instagram.",
+    "Hay DJ todos los viernes y sábados. Quién pincha cada semana lo anunciamos en Instagram.",
 
   // ---------- Fotos ----------
   // Sube las fotos a la carpeta "fotos" y pon aquí su nombre.

@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Margarete · Bar y jardín en Ciutadella, Menorca</title>
-<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, música en directo, DJs y teatro.">
+<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta y sesiones de DJ los viernes y sábados.">
 <meta property="og:title" content="La Margarete, Ciutadella">
-<meta property="og:description" content="Cócteles, jardín y música en directo en el casco antiguo de Ciutadella.">
+<meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#16291F">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2316291F'/><text x='32' y='46' font-family='Arial Black,sans-serif' font-size='38' text-anchor='middle' fill='%23D8B27A'>M</text></svg>">
@@ -198,7 +198,7 @@
   <section class="bloque agenda" id="agenda" aria-labelledby="t-agenda">
     <div class="envoltura">
       <h2 id="t-agenda">En el jardín</h2>
-      <p class="intro">Música en directo, sesiones de DJ y teatro entre las mesas.</p>
+      <p class="intro">Sesiones de DJ los viernes y sábados, bajo el ficus.</p>
       <div id="eventos"></div>
     </div>
   </section>
@@ -299,7 +299,7 @@
   // Fotos
   $("presentacion").textContent = M.presentacion;
   const fotos = M.fotos || [];
-  const huecos = ["El jardín y el ficus", "La barra", "Un cóctel", "Concierto", "La fábrica", "Una noche de verano"];
+  const huecos = ["El jardín y el ficus", "La barra", "Un cóctel", "Sesión de DJ", "La fábrica", "Una noche de verano"];
   $("galeria").innerHTML = fotos.length
     ? fotos.map(f => `<figure><img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">${f.texto ? `<figcaption>${esc(f.texto)}</figcaption>` : ""}</figure>`).join("")
     : huecos.map(t => `<figure class="hueco"><span>Foto: ${t}</span></figure>`).join("");
