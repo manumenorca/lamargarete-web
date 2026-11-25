@@ -394,7 +394,8 @@
   </div>
 </footer>
 
-<script src="contenido.js"></script>
+<!-- contenido.js se carga siempre fresco, para que los cambios se vean al momento -->
+<script>document.write('<script src="contenido.js?v=' + Date.now() + '"><\/script>');</script>
 <script>
 (function(){
   const M = window.MARGARETE;
