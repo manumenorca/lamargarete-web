@@ -14,7 +14,7 @@ window.MARGARETE = {
     "Escondido en el casco antiguo de Ciutadella está el jardín más grande de Menorca: una antigua fábrica de zapatos con un patio a la sombra de un ficus enorme. Cócteles y sesiones de DJ los viernes y sábados.",
   direccion: "Carrer de Sant Joan Baptista, 6",
   ciudad: "07760 Ciutadella de Menorca",
-  telefono: "+34 619 842 438",
+  telefono: "", // no se publica
   email: "lamargarete@gmail.com", // vacío ("") = no se muestra
   mapa: "https://www.google.com/maps/search/?api=1&query=La+Margarete+Carrer+de+Sant+Joan+Baptista+6+Ciutadella",
 
@@ -34,60 +34,141 @@ window.MARGARETE = {
     { nombre: "Facebook", url: "https://facebook.com/lamargarete" },
     { nombre: "X (Twitter)", url: "https://twitter.com/lamargarete" },
     { nombre: "TikTok", url: "" },
-    { nombre: "WhatsApp", url: "https://wa.me/34619842438" },
   ],
 
   // ---------- Carta ----------
-  // soloVerano: true  -> esa sección solo se muestra si temporadaVerano es true
-  temporadaVerano: true,
-  // cartaPdf: enlace a la carta en PDF (vacío = no se muestra el botón)
-  cartaPdf: "",
+  // Cada sección es una pestaña. Dentro:
+  //   { titulo: "Blancos" }                          -> subtítulo dentro de la sección
+  //   { nombre, desc, precio: 10 }                   -> un precio
+  //   { nombre, desc, precios: [["Copa", 4], ["Botella", 20]] }  -> varios precios
+  // Los precios van como número (5.5 = 5,50 €).
+  // soloVerano: true -> esa sección solo se ve si temporadaVerano es true
+  temporadaVerano: false, // la comida vuelve en junio
+  cartaPdf: "carta/carta-bebidas.pdf", // vacío ("") = sin botón de descarga
+  notaCarta: "Suplemento de Red Bull en cualquier consumición: +1 €.",
   carta: [
     {
       seccion: "Cócteles",
       platos: [
-        { nombre: "Margarete", desc: "El de la casa. Pregunta en barra", precio: "10" },
-        { nombre: "Mojito", desc: "Ron blanco, lima, hierbabuena", precio: "9" },
-        { nombre: "Margarita", desc: "Tequila, triple seco, lima", precio: "9" },
-        { nombre: "Pomada", desc: "Gin de Menorca con limonada", precio: "7" },
-        { nombre: "Espresso martini", desc: "Vodka, café, licor de café", precio: "10" },
+        { nombre: "Mojito, caipirinha y caipiroska", desc: "Además de los clásicos, te los podemos hacer de fresa, maracuyá o mango.", precio: 10 },
+        { nombre: "Sant Joan Six", desc: "Una reinterpretación del clásico caipiriña en clave isleña: gin Xoriguer, lima, limón y un delicioso toque de licor de hierbas menorquinas.", precio: 10 },
+        { nombre: "Negroni", desc: "Un cóctel fuerte para paladares curiosos: Gin Mare, vermouth dulce y Campari.", precio: 10 },
+        { nombre: "La frozen margarita de la margarete", desc: "Con lima y jengibre. La primera con «j» y la segunda con «g». Si no te tomas una margarita en la margarete, ya me contarás… ¡Y está granizada!", precio: 10 },
+        { nombre: "Piña colada", desc: "If you like… Ron, piña y batida de coco.", precio: 10 },
+        { titulo: "Además" },
+        { nombre: "Mojito sin alcohol", precio: 7 },
+        { nombre: "Aperol Spritz", precio: 8 },
       ],
     },
     {
-      seccion: "Gin tonics",
+      seccion: "Vinos",
       platos: [
-        { nombre: "Xoriguer", desc: "Gin de Mahón, tónica, limón", precio: "9" },
-        { nombre: "Hendrick's", desc: "Pepino y pimienta rosa", precio: "11" },
-        { nombre: "Mare", desc: "Albahaca y romero", precio: "12" },
+        { titulo: "Blancos" },
+        { nombre: "Pita Verdejo", desc: "Verdejo, Rueda", precios: [["Copa", 4], ["Botella", 20]] },
+        { nombre: "Sa Caterina Blanc", desc: "Malvasía, chardonnay y macabeo, Menorca", precios: [["Copa", 6], ["Botella", 35]] },
+        { nombre: "Pazo Señorans", desc: "Albariño, Rías Baixas", precios: [["Botella", 36]] },
+        { titulo: "Tintos" },
+        { nombre: "Bideona Laderas", desc: "Tempranillo, Rioja Alavesa", precios: [["Copa", 4], ["Botella", 20]] },
+        { nombre: "Sa Caterina Negre", desc: "Vi de la Terra Illa de Menorca", precios: [["Copa", 6], ["Botella", 35]] },
+        { nombre: "Parajes de Callejo", desc: "D.O. Ribera del Duero", precios: [["Botella", 36]] },
+        { titulo: "Para compartir" },
+        { nombre: "Sangría", precios: [["Jarra de 1 litro", 20]] },
+        { nombre: "Tinto de verano", precios: [["Copa ancha", 5.5], ["Jarra de 1 litro", 15]] },
+        { nombre: "Kalimotxo", precios: [["Copa ancha", 4.5], ["Jarra de 1 litro", 12]] },
+        { nombre: "Benjamín de cava", precio: 6 },
       ],
     },
     {
-      seccion: "Cervezas y vinos",
+      seccion: "Cervezas",
       platos: [
-        { nombre: "Caña", desc: "", precio: "3" },
-        { nombre: "Cerveza artesana de Menorca", desc: "", precio: "5" },
-        { nombre: "Copa de vino blanco / tinto", desc: "Vinos de la isla", precio: "4,5" },
-        { nombre: "Cava", desc: "", precio: "5" },
+        { nombre: "Caña mediana", precio: 3 },
+        { nombre: "Caña grande", precio: 5 },
+        { titulo: "Medianas (1/3)" },
+        { nombre: "Estrella", precio: 4 },
+        { nombre: "Estrella Galicia", precio: 4 },
+        { nombre: "Coronita", precio: 5 },
+        { nombre: "Alhambra", precio: 5 },
+        { nombre: "Voll-Damm", precio: 5 },
+        { nombre: "Daura sin gluten", precio: 5 },
+        { nombre: "Sin alcohol", precio: 4 },
       ],
     },
     {
-      seccion: "Sin alcohol",
+      seccion: "Gin con limonada",
       platos: [
-        { nombre: "Zumo natural", desc: "", precio: "4,5" },
-        { nombre: "Limonada casera", desc: "", precio: "4" },
-        { nombre: "Refrescos", desc: "", precio: "3" },
+        { nombre: "Pequeño", precio: 4 },
+        { nombre: "Grande", precio: 8 },
+        { nombre: "Jarra", precio: 22 },
+      ],
+    },
+    {
+      seccion: "Ginebras",
+      platos: [
+        { titulo: "Ginebras" },
+        { nombre: "Seagram's", precio: 10 },
+        { nombre: "Tanqueray", precio: 10 },
+        { nombre: "Bombay Sapphire", precio: 10 },
+        { nombre: "Beefeater", precio: 10 },
+        { nombre: "Xoriguer", precio: 10 },
+        { nombre: "Gloop fresa", precio: 10 },
+        { nombre: "Puerto de Indias", precio: 10 },
+        { titulo: "Premium" },
+        { nombre: "Hendrick's", precio: 13 },
+        { nombre: "G'Vine", precio: 13 },
+        { nombre: "Innat Menorca", precio: 13 },
+        { nombre: "Martin Miller's", precio: 13 },
+        { nombre: "Bulldog", precio: 13 },
+        { nombre: "Gin Mare", precio: 13 },
+        { nombre: "Nordés", precio: 13 },
+      ],
+    },
+    {
+      seccion: "Rones",
+      platos: [
+        { nombre: "Cacique, Barceló, Santa Teresa, Brugal, Havana 3, Bacardí, Captain Morgan, Havana 7", precios: [["Chupito", 2.5], ["Copa ancha", 6.5], ["Combinado", 10]] },
+        { nombre: "Zacapa 23", precios: [["Copa ancha", 10], ["Combinado", 15]] },
+      ],
+    },
+    {
+      seccion: "Whiskies",
+      platos: [
+        { nombre: "JB, Ballantine's, Cutty Sark, White Label, Passport, Southern Comfort, Jameson", precios: [["Chupito", 2.5], ["Copa ancha", 7.5], ["Combinado", 10]] },
+        { nombre: "Jack Daniel's", precios: [["Copa ancha", 7.5], ["Combinado", 12]] },
+        { nombre: "Chivas", precios: [["Copa ancha", 7.5], ["Combinado", 13]] },
+        { nombre: "Cardhu", precios: [["Copa ancha", 7.5], ["Combinado", 13]] },
+        { nombre: "Johnnie Walker Black", precios: [["Copa ancha", 7.5], ["Combinado", 13]] },
+      ],
+    },
+    {
+      seccion: "Vodkas",
+      platos: [
+        { nombre: "Absolut, Smirnoff, Moskovskaya", precios: [["Chupito", 2.5], ["Copa ancha", 7.5], ["Combinado", 10]] },
+      ],
+    },
+    {
+      seccion: "Licores",
+      platos: [
+        { nombre: "Hierbas mallorquinas, Campari, Licor 43, Pacharán, Baileys, Fernet, Frangelico, Amaretto, Tequila, Cointreau, Malibú, Jägermeister, crema de orujo, Anís del Mono", precios: [["Chupito", 2.5], ["Copa ancha", 6.5], ["Combinado", 10]] },
+        { nombre: "Vermouth Izaguirre", precio: 5.5 },
+        { nombre: "Martini Rosso / Martini Bianco", precio: 6.5 },
       ],
     },
     {
       seccion: "Para comer",
       soloVerano: true,
       platos: [
-        { nombre: "Nachos", desc: "Guacamole, pico de gallo, queso", precio: "10" },
-        { nombre: "Hamburguesa", desc: "Ternera, queso de Mahón, patatas", precio: "14" },
-        { nombre: "Tabla de quesos de Menorca", desc: "", precio: "12" },
+        // Se rellena en junio con la carta de comida
       ],
     },
   ],
+
+  // ---------- Eventos y prebodas ----------
+  eventos: {
+    texto:
+      "Organizamos eventos privados y prebodas en el jardín. Escríbenos con la fecha, el tipo de evento y cuántas personas seréis, y te respondemos con una propuesta.",
+    tipos: ["Preboda", "Cumpleaños", "Evento de empresa", "Otro"],
+    email: "lamargarete@gmail.com", // a dónde llegan las solicitudes
+  },
 
   // ---------- Agenda ----------
   // fecha en formato AAAA-MM-DD. Las fechas pasadas se ocultan solas.
@@ -100,8 +181,13 @@ window.MARGARETE = {
   // ---------- Fotos ----------
   // Sube las fotos a la carpeta "fotos" y pon aquí su nombre.
   // portada: la foto grande de arriba (vacío = fondo verde)
-  portada: "",
+  portada: "fotos/terraza-gente.jpg",
   fotos: [
-    // { archivo: "fotos/jardin.jpg", texto: "El jardín con el ficus" },
+    { archivo: "fotos/jardin-1.jpg", texto: "El jardín" },
+    { archivo: "fotos/jardin-ficus.jpg", texto: "Bajo el ficus" },
+    { archivo: "fotos/vista-jardin.jpg", texto: "El jardín desde arriba" },
+    { archivo: "fotos/jardin-noche.jpg", texto: "Al caer la tarde" },
+    { archivo: "fotos/raices-ficus.jpg", texto: "Las raíces del ficus" },
+    { archivo: "fotos/jardin-mesas.jpg", texto: "Las mesas del jardín" },
   ],
 };

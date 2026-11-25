@@ -18,7 +18,8 @@ Web estática de La Margarete, bar con jardín en Ciutadella (Menorca). Se publi
 - Ya no se hacen conciertos (no está permitido). No anunciar música en directo; solo sesiones de DJ (viernes y sábados).
 
 ## Atajos habituales
-- "Modo verano / modo invierno": cambiar `temporadaVerano` (muestra u oculta la sección "Para comer").
 - "Pon un aviso": rellenar `aviso` (p. ej. "Cerrado por vacaciones hasta el 15 de marzo"). Quitarlo = dejarlo en "".
 - Sesiones de DJ: añadir a `agenda` con fecha AAAA-MM-DD; las fechas pasadas se ocultan solas.
-- Precios: solo el número, sin "€" (la web lo añade).
+- Precios: como número, sin "€" (5.5 = 5,50 €; la web lo formatea). Varios precios: `precios: [["Copa", 4], ["Botella", 20]]`. Subtítulo dentro de una sección: `{ titulo: "Blancos" }`.
+- Carta en PDF: el botón de descarga apunta a `carta/carta-bebidas.pdf`. Si Manu manda un PDF nuevo, sustitúyelo con el mismo nombre y actualiza también la carta de `contenido.js` para que coincidan.
+- Comida: solo en temporada (desde junio). Para activarla, `temporadaVerano: true` y rellenar la sección "Para comer" (vacía = no sale).

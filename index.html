@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Margarete · Bar y jardín en Ciutadella, Menorca</title>
-<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta y sesiones de DJ los viernes y sábados.">
+<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, sesiones de DJ los viernes y sábados, eventos privados y prebodas.">
 <meta property="og:title" content="La Margarete, Ciutadella">
 <meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
@@ -50,8 +50,7 @@
   .nav ul a{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85}
   .nav ul a:hover{opacity:1;color:var(--mares)}
   @media (max-width:560px){.nav ul{gap:.9rem;font-size:.92rem}.nav ul li.opc{display:none}}
-  @media (max-width:480px){.nav ul li.opc2{display:none}}
-
+  
   /* ---------- Portada ---------- */
   .portada{position:relative;background:var(--hoja);color:var(--cal);overflow:hidden;min-height:min(92vh,820px);display:flex;align-items:flex-end;isolation:isolate}
   .portada .foto{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
@@ -91,7 +90,12 @@
   .plato{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:1.05rem 0;border-bottom:1px solid rgba(26,34,29,.14)}
   .plato .n{font-weight:700;font-size:1.1rem}
   .plato .p{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;color:var(--naranja-texto);align-self:start}
-  .plato .d{grid-column:1/-1;color:var(--gris);font-size:.97rem}
+  .plato .d{grid-column:1/-1;color:var(--gris);font-size:.97rem;max-width:46ch}
+  .plato .varios{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;margin-top:.35rem}
+  .plato .varios span{font-size:.95rem;color:var(--gris)}
+  .plato .varios b{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--naranja-texto);margin-left:.35rem}
+  .subtitulo{grid-column:1/-1;font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--ficus);padding-top:2rem;padding-bottom:.2rem;border-bottom:2px solid var(--ficus)}
+  .subtitulo:first-child{padding-top:0}
   .nota-carta{margin-top:1.75rem;color:var(--gris);font-size:.93rem}
 
   /* ---------- Agenda ---------- */
@@ -107,6 +111,24 @@
   .vacio{margin-top:2rem;padding:1.75rem;border:1.5px dashed rgba(216,178,122,.5);border-radius:14px;max-width:40rem}
   .vacio a{color:var(--naranja);font-weight:700}
 
+
+  /* ---------- Eventos ---------- */
+  .eventos-priv .rejilla{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
+  @media (max-width:800px){.eventos-priv .rejilla{grid-template-columns:1fr}}
+  .eventos-priv .intro{color:var(--tinta);font-size:1.2rem;max-width:34ch}
+  .eventos-priv .alt{margin-top:1.25rem;color:var(--gris)}
+  .eventos-priv .alt a{font-weight:700;text-decoration-color:var(--naranja);text-underline-offset:3px}
+  form.solicitud{background:#fff;border-radius:18px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.25rem;box-shadow:0 1px 0 rgba(26,34,29,.08)}
+  form.solicitud .ancho{grid-column:1/-1}
+  @media (max-width:480px){form.solicitud{grid-template-columns:1fr}}
+  form.solicitud label{display:flex;flex-direction:column;gap:.35rem;font-weight:500;font-size:.95rem}
+  form.solicitud input,form.solicitud select,form.solicitud textarea{font:inherit;font-size:1rem;padding:.7rem .8rem;border:1.5px solid rgba(26,34,29,.25);border-radius:10px;background:var(--cal);color:var(--tinta);width:100%}
+  form.solicitud textarea{min-height:6rem;resize:vertical}
+  form.solicitud input:focus,form.solicitud select:focus,form.solicitud textarea:focus{outline:none;border-color:var(--ficus);box-shadow:0 0 0 3px rgba(255,138,0,.35)}
+  form.solicitud button{font:inherit;font-weight:700;cursor:pointer;justify-self:start;background:var(--naranja);border-color:var(--naranja);color:var(--tinta)}
+  form.solicitud button:hover{background:var(--hoja);border-color:var(--hoja);color:var(--cal)}
+  form.solicitud .ayuda{grid-column:1/-1;color:var(--gris);font-size:.88rem}
+
   /* ---------- Fotos ---------- */
   .galeria{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(130px,17vw,220px);gap:.75rem;margin-top:2.25rem}
   .galeria figure{position:relative;border-radius:14px;overflow:hidden;background:var(--ficus)}
@@ -114,7 +136,8 @@
   .galeria figure:nth-child(6n+2),.galeria figure:nth-child(6n+3){grid-column:span 2}
   .galeria figure:nth-child(6n+4),.galeria figure:nth-child(6n+5),.galeria figure:nth-child(6n+6){grid-column:span 2}
   .galeria img{width:100%;height:100%;object-fit:cover}
-  .galeria figcaption{position:absolute;left:.75rem;bottom:.6rem;color:#fff;font-size:.88rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+  .galeria figure:not(.hueco)::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,rgba(0,0,0,.45));pointer-events:none}
+  .galeria figcaption{z-index:1;position:absolute;left:.75rem;bottom:.6rem;color:#fff;font-size:.88rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.6)}
   .galeria .hueco{display:flex;align-items:center;justify-content:center;color:rgba(237,240,233,.55);font-size:.95rem;text-align:center;padding:1rem;background:repeating-linear-gradient(135deg,var(--ficus) 0 14px,#30513b 14px 28px)}
   @media (max-width:700px){
     .galeria{grid-template-columns:1fr 1fr}
@@ -159,7 +182,8 @@
     <a class="marca" href="#inicio"><img src="img/margarita.png" alt="">la margarete</a>
     <ul>
       <li><a href="#carta">Carta</a></li>
-      <li class="opc2"><a href="#agenda">Agenda</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li class="opc"><a href="#agenda">DJs</a></li>
       <li class="opc"><a href="#fotos">Fotos</a></li>
       <li><a href="#donde">Dónde</a></li>
     </ul>
@@ -175,6 +199,7 @@
     <p class="hoy" id="hoy"></p>
     <div class="botones">
       <a class="boton lleno" href="#carta">Ver la carta</a>
+      <a class="boton linea" href="#eventos">Eventos y prebodas</a>
       <a class="boton linea" id="btnMapa" href="#donde" target="_blank" rel="noopener">Cómo llegar</a>
     </div>
   </div>
@@ -190,8 +215,28 @@
         <div class="pestanas" role="tablist" aria-label="Secciones de la carta" id="pestanas"></div>
       </div>
       <ul class="platos" id="platos" role="tabpanel"></ul>
-      <p class="nota-carta">Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.</p>
+      <p class="nota-carta"><span id="notaCarta"></span> Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.</p>
       <p id="pdf" hidden style="margin-top:1rem"><a class="boton oscuro" target="_blank" rel="noopener">Descargar la carta en PDF</a></p>
+    </div>
+  </section>
+
+  <section class="bloque eventos-priv" id="eventos" aria-labelledby="t-eventos">
+    <div class="envoltura rejilla">
+      <div>
+        <h2 id="t-eventos">Eventos y prebodas</h2>
+        <p class="intro" id="eventosTexto"></p>
+        <p class="alt" id="eventosAlt"></p>
+      </div>
+      <form class="solicitud" id="solicitud" novalidate>
+        <label>Fecha<input type="date" name="fecha" required></label>
+        <label>Número de personas<input type="number" name="personas" min="1" inputmode="numeric" required></label>
+        <label class="ancho">Tipo de evento<select name="tipo" id="tipoEvento" required></select></label>
+        <label>Tu nombre<input type="text" name="nombre" autocomplete="name" required></label>
+        <label>Email o teléfono<input type="text" name="contacto" autocomplete="email" required></label>
+        <label class="ancho">Algo más que debamos saber<textarea name="mensaje" placeholder="Horario, si queréis DJ, comida…"></textarea></label>
+        <button class="boton" type="submit">Enviar solicitud</button>
+        <p class="ayuda" id="ayudaForm">Se abrirá tu aplicación de correo con todo ya escrito; solo tienes que darle a enviar.</p>
+      </form>
     </div>
   </section>
 
@@ -199,7 +244,7 @@
     <div class="envoltura">
       <h2 id="t-agenda">En el jardín</h2>
       <p class="intro">Sesiones de DJ los viernes y sábados, bajo el ficus.</p>
-      <div id="eventos"></div>
+      <div id="listaDJ"></div>
     </div>
   </section>
 
@@ -258,13 +303,16 @@
   $("btnMapa").href = M.mapa; $("tarjetaMapa").href = M.mapa;
 
   // Carta
-  const secciones = M.carta.filter(s => !s.soloVerano || M.temporadaVerano);
+  const euros = v => typeof v === "number" ? v.toLocaleString("es-ES", {minimumFractionDigits: Number.isInteger(v) ? 0 : 2, maximumFractionDigits: 2}) + " €" : esc(v);
+  const secciones = M.carta.filter(s => (!s.soloVerano || M.temporadaVerano) && s.platos.length);
+  $("notaCarta").textContent = M.notaCarta || "";
   const pest = $("pestanas"), lista = $("platos");
   function mostrar(i){
     [...pest.children].forEach((b,j) => { b.setAttribute("aria-selected", i===j); b.tabIndex = i===j ? 0 : -1; });
     lista.setAttribute("aria-label", secciones[i].seccion);
-    lista.innerHTML = secciones[i].platos.map(p => `
-      <li class="plato"><span class="n">${esc(p.nombre)}</span><span class="p">${esc(p.precio)}${p.precio ? " €" : ""}</span>${p.desc ? `<span class="d">${esc(p.desc)}</span>` : ""}</li>`).join("");
+    lista.innerHTML = secciones[i].platos.map(p => p.titulo
+      ? `<li class="subtitulo">${esc(p.titulo)}</li>`
+      : `<li class="plato"><span class="n">${esc(p.nombre)}</span><span class="p">${p.precio != null ? euros(p.precio) : ""}</span>${p.desc ? `<span class="d">${esc(p.desc)}</span>` : ""}${p.precios ? `<span class="varios">${p.precios.map(([t,v]) => `<span>${esc(t)}<b>${euros(v)}</b></span>`).join("")}</span>` : ""}</li>`).join("");
   }
   secciones.forEach((s,i) => {
     const b = document.createElement("button");
@@ -286,15 +334,33 @@
   const prox = (M.agenda || []).filter(e => new Date(e.fecha + "T23:59") >= hoy).sort((a,b) => a.fecha.localeCompare(b.fecha));
   const ig = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
   if (prox.length) {
-    $("eventos").innerHTML = `<ul class="eventos">` + prox.map(e => {
+    $("listaDJ").innerHTML = `<ul class="eventos">` + prox.map(e => {
       const d = new Date(e.fecha + "T12:00");
       const dia = d.toLocaleDateString("es-ES",{day:"numeric"});
       const resto = d.toLocaleDateString("es-ES",{weekday:"short", month:"short"});
       return `<li class="evento"><div class="dia">${dia}<small>${esc(resto)}</small></div><div><div class="t">${esc(e.titulo)}</div><div class="meta">${esc([e.tipo, e.hora].filter(Boolean).join(", "))}</div></div></li>`;
     }).join("") + `</ul>`;
   } else {
-    $("eventos").innerHTML = `<div class="vacio"><p>${esc(M.agendaVacia)}</p>${ig ? `<p style="margin-top:.75rem"><a href="${esc(ig.url)}" target="_blank" rel="noopener">Seguir en Instagram</a></p>` : ""}</div>`;
+    $("listaDJ").innerHTML = `<div class="vacio"><p>${esc(M.agendaVacia)}</p>${ig ? `<p style="margin-top:.75rem"><a href="${esc(ig.url)}" target="_blank" rel="noopener">Seguir en Instagram</a></p>` : ""}</div>`;
   }
+
+
+  // Eventos y prebodas
+  const E = M.eventos || {};
+  $("eventosTexto").textContent = E.texto || "";
+  if (E.email) $("eventosAlt").innerHTML = `También puedes escribirnos directamente a <a href="mailto:${esc(E.email)}">${esc(E.email)}</a>.`;
+  $("tipoEvento").innerHTML = `<option value="">Elige uno</option>` + (E.tipos || []).map(t => `<option>${esc(t)}</option>`).join("");
+  $("solicitud").addEventListener("submit", ev => {
+    ev.preventDefault();
+    const f = ev.target, d = Object.fromEntries(new FormData(f));
+    const falta = [...f.querySelectorAll("[required]")].find(i => !i.value.trim());
+    if (falta) { $("ayudaForm").textContent = "Falta un dato: " + falta.closest("label").firstChild.textContent.trim() + "."; falta.focus(); return; }
+    const fecha = new Date(d.fecha + "T12:00").toLocaleDateString("es-ES", {weekday:"long", day:"numeric", month:"long", year:"numeric"});
+    const asunto = `${d.tipo} el ${fecha} (${d.personas} personas)`;
+    const cuerpo = `Hola,\n\nOs escribo para un evento en La Margarete:\n\nTipo de evento: ${d.tipo}\nFecha: ${fecha}\nNúmero de personas: ${d.personas}\nNombre: ${d.nombre}\nContacto: ${d.contacto}\n\n${d.mensaje || ""}`;
+    location.href = `mailto:${E.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    $("ayudaForm").textContent = "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a " + E.email + ".";
+  });
 
   // Fotos
   $("presentacion").textContent = M.presentacion;
