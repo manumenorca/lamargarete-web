@@ -11,7 +11,7 @@ window.MARGARETE = {
   // ---------- Datos básicos ----------
   lema: "Jardín de copas en el casco antiguo de Ciutadella",
   presentacion:
-    "Escondido en el casco antiguo de Ciutadella está el jardín más grande de Menorca: una antigua fábrica de zapatos con un patio a la sombra de un ficus enorme. Cócteles y sesiones de DJ los viernes y sábados.",
+    "Dentro, la nave de la antigua fábrica de zapatos conserva sus vigas de madera y su suelo de barro. Fuera, el jardín interior más grande de Menorca, a la sombra de un ficus enorme.",
   direccion: "Carrer de Sant Joan Baptista, 6",
   ciudad: "07760 Ciutadella de Menorca",
   telefono: "", // no se publica
@@ -189,13 +189,36 @@ window.MARGARETE = {
   // ---------- Fotos ----------
   // Sube las fotos a la carpeta "fotos" y pon aquí su nombre.
   // portada: la foto grande de arriba (vacío = fondo verde)
-  portada: "fotos/terraza-gente.jpg",
+  portada: "fotos/ficus-noche.jpg",
   fotos: [
-    { archivo: "fotos/jardin-1.jpg", texto: "El jardín" },
-    { archivo: "fotos/jardin-ficus.jpg", texto: "Bajo el ficus" },
-    { archivo: "fotos/vista-jardin.jpg", texto: "El jardín desde arriba" },
-    { archivo: "fotos/jardin-noche.jpg", texto: "Al caer la tarde" },
+    { archivo: "fotos/buganvilla.jpg", texto: "La buganvilla y el olivo" },
+    { archivo: "fotos/barra-rueda.jpg", texto: "La barra, bajo las vigas de la fábrica" },
     { archivo: "fotos/raices-ficus.jpg", texto: "El ficus que se comió una bici antigua" },
-    { archivo: "fotos/jardin-mesas.jpg", texto: "Las mesas del jardín" },
+    { archivo: "fotos/bajo-el-ficus.jpg", texto: "Bajo el ficus" },
+    { archivo: "fotos/margarita-pared.jpg", texto: "La margarita del jardín" },
+    { archivo: "fotos/interior-noche.jpg", texto: "Dentro, de noche" },
+    { archivo: "fotos/jardin-atardecer.jpg", texto: "Al caer la tarde" },
+    { archivo: "fotos/botellas.jpg", texto: "" },
+    { archivo: "fotos/jardin-de-dia.jpg", texto: "La antigua fábrica, de día" },
   ],
+
+  // Las estampitas de la ventana (vacío = no sale)
+  retratos: {
+    titulo: "Las actrices de la ventana",
+    texto: "Las trabajadoras de la fábrica pegaron en una ventana estampitas de las actrices de su época. Todavía siguen ahí. ¿Sabrás encontrarlas?",
+    fotos: ["fotos/retrato-1.jpg", "fotos/retrato-2.jpg", "fotos/retrato-3.jpg", "fotos/retrato-4.jpg"],
+  },
+
+  // Foto del cartel de la entrada, en "Dónde estamos"
+  fotoEntrada: "fotos/cartel.jpg",
+
+  // ---------- La puerta ----------
+  // La sección "No te vas a creer lo que hay detrás de esta puerta"
+  puerta: {
+    foto: "fotos/puerta.jpg",       // lo que se ve desde la calle
+    detras: "fotos/jardin-lleno-noche.jpg", // lo que aparece al abrirla
+  },
+
+  // Foto de la sección de DJs
+  fotoDJ: "fotos/dj-noche.jpg",
 };

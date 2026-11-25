@@ -9,7 +9,7 @@
 <meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#16291F">
-<meta property="og:image" content="img/margarita.png">
+<meta property="og:image" content="fotos/jardin-lleno-noche.jpg">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
   .portada .flor{position:absolute;z-index:-1;right:-3%;top:1.5rem;width:min(40vw,500px);pointer-events:none;filter:drop-shadow(0 18px 40px rgba(0,0,0,.35))}
   @media (max-width:700px){.portada .flor{right:-18%;top:1.5rem;width:72vw}}
   .portada .envoltura{padding-block:clamp(14rem,30vw,22rem) 3rem}
-  .rotulo{font-family:var(--logo);font-weight:400;line-height:.95;font-size:clamp(4.2rem,13vw,9.5rem);color:var(--cal);text-shadow:0 4px 30px rgba(22,41,31,.6)}
+  .rotulo{font-family:var(--logo);font-weight:400;line-height:.95;font-size:clamp(2.6rem,14.5vw,9.5rem);white-space:nowrap;color:var(--cal);text-shadow:0 4px 30px rgba(22,41,31,.6)}
   .rotulo span{display:inline-block}
   .portada .lema{font-size:clamp(1.15rem,2.4vw,1.45rem);max-width:30ch;margin-top:1.6rem;line-height:1.35}
   .portada .hoy{margin-top:.6rem;color:var(--naranja);font-weight:500}
@@ -128,6 +128,46 @@
   form.solicitud button{font:inherit;font-weight:700;cursor:pointer;justify-self:start;background:var(--naranja);border-color:var(--naranja);color:var(--tinta)}
   form.solicitud button:hover{background:var(--hoja);border-color:var(--hoja);color:var(--cal)}
   form.solicitud .ayuda{grid-column:1/-1;color:var(--gris);font-size:.88rem}
+
+
+  /* ---------- La puerta ---------- */
+  .puerta-sec .rejilla{display:grid;grid-template-columns:1fr minmax(280px,440px);gap:clamp(2rem,6vw,5rem);align-items:center}
+  @media (max-width:760px){.puerta-sec .rejilla{grid-template-columns:1fr}}
+  .puerta-sec h2{font-size:clamp(2.6rem,6.2vw,4.6rem);max-width:12ch}
+  .puerta-sec .intro{color:var(--tinta);font-size:1.15rem;max-width:36ch}
+  .puerta-sec .revelado{margin-top:1rem;font-size:1.15rem;font-weight:700;color:var(--ficus);max-width:36ch;min-height:3em}
+  .puerta{position:relative;aspect-ratio:3/4;border-radius:18px;overflow:hidden;perspective:1800px;background:var(--hoja) 30% center/cover no-repeat;cursor:pointer;border:0;padding:0;width:100%;display:block;box-shadow:0 30px 60px -30px rgba(22,41,31,.6)}
+  .puerta .hoja-p{position:absolute;top:0;bottom:0;width:50%;background-repeat:no-repeat;background-size:200% auto;transition:transform 1.5s cubic-bezier(.65,0,.25,1);backface-visibility:hidden;will-change:transform}
+  .puerta .izq{left:0;background-position:0% 75%;transform-origin:left center}
+  .puerta .der{right:0;background-position:100% 75%;transform-origin:right center}
+  .puerta.abierta .izq{transform:rotateY(-108deg)}
+  .puerta.abierta .der{transform:rotateY(108deg)}
+  .puerta .pista{position:absolute;left:50%;bottom:1.25rem;transform:translateX(-50%);background:var(--naranja);color:var(--tinta);font-weight:700;padding:.7rem 1.3rem;border-radius:999px;white-space:nowrap;transition:opacity .4s;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .puerta.abierta .pista{opacity:0}
+  .puerta .pie{position:absolute;left:1rem;bottom:.9rem;color:#fff;font-size:.9rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.7);opacity:0;transition:opacity .6s 1s}
+  .puerta.abierta .pie{opacity:1}
+  .otra-vez{margin-top:1.25rem;font:inherit;font-weight:500;background:none;border:0;color:var(--gris);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+  .otra-vez[hidden]{display:none}
+  @media (prefers-reduced-motion:reduce){.puerta .hoja-p{transition:none}.puerta.abierta .hoja-p{opacity:0}}
+
+  /* ---------- DJs con foto ---------- */
+  .agenda .rejilla{display:grid;grid-template-columns:1.1fr minmax(240px,380px);gap:clamp(2rem,6vw,5rem);align-items:center}
+  @media (max-width:760px){.agenda .rejilla{grid-template-columns:1fr}}
+  .foto-dj{border-radius:18px;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 60%}
+
+
+  /* ---------- Retratos ---------- */
+  .retratos{margin-top:clamp(3rem,7vw,5rem);display:grid;grid-template-columns:minmax(220px,1fr) 3fr;gap:2rem;align-items:center}
+  @media (max-width:760px){.retratos{grid-template-columns:1fr}}
+  .retratos-t{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.5vw,2.8rem);line-height:.95;color:var(--ficus);margin-bottom:.75rem}
+  .retratos p{font-size:1.15rem;max-width:28ch}
+  .retratos .fila{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+  @media (max-width:520px){.retratos .fila{grid-template-columns:repeat(2,1fr)}}
+  .retratos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px}
+
+  /* ---------- Cartel de la entrada ---------- */
+  .tarjeta-mapa.con-foto{background-size:cover;background-position:center 60%;min-height:20rem;display:flex;flex-direction:column;justify-content:flex-end}
+  .tarjeta-mapa.con-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(22,41,31,.85))}
 
   /* ---------- Fotos ---------- */
   .galeria{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(130px,17vw,220px);gap:.75rem;margin-top:2.25rem}
@@ -206,6 +246,22 @@
 </header>
 
 <main>
+
+  <section class="bloque puerta-sec" id="puerta" aria-labelledby="t-puerta">
+    <div class="envoltura rejilla">
+      <div>
+        <h2 id="t-puerta">No te vas a creer lo que hay detrás de esta puerta</h2>
+        <p class="intro">Desde la calle parece una entrada más del casco antiguo: una pared de piedra, una puerta de cristal y un pasillo estrecho.</p>
+        <p class="revelado" id="revelado" aria-live="polite"></p>
+        <button class="otra-vez" id="cerrarPuerta" type="button" hidden>Cerrar la puerta</button>
+      </div>
+      <button class="puerta" id="puertaBtn" type="button" aria-pressed="false" aria-label="Abrir la puerta">
+        <span class="hoja-p izq"></span><span class="hoja-p der"></span>
+        <span class="pista">Abre la puerta</span>
+        <span class="pie">Esto es lo que hay detrás</span>
+      </button>
+    </div>
+  </section>
   <section class="bloque" id="carta" aria-labelledby="t-carta">
     <div class="envoltura">
       <div class="carta-cab">
@@ -241,10 +297,13 @@
   </section>
 
   <section class="bloque agenda" id="agenda" aria-labelledby="t-agenda">
-    <div class="envoltura">
-      <h2 id="t-agenda">En el jardín</h2>
-      <p class="intro">Sesiones de DJ los viernes y sábados, bajo el ficus.</p>
-      <div id="listaDJ"></div>
+    <div class="envoltura rejilla">
+      <div>
+        <h2 id="t-agenda">Viernes y sábados, DJ</h2>
+        <p class="intro">Cuando cae la noche, la antigua fábrica se llena.</p>
+        <div id="listaDJ"></div>
+      </div>
+      <img class="foto-dj" id="fotoDJ" alt="Noche de DJ en La Margarete, con la barra llena" loading="lazy" hidden>
     </div>
   </section>
 
@@ -253,6 +312,7 @@
       <h2 id="t-fotos">La antigua fábrica</h2>
       <p class="intro" id="presentacion"></p>
       <div class="galeria" id="galeria"></div>
+      <div class="retratos" id="retratos" hidden><div><h3 class="retratos-t" id="retratosTitulo"></h3><p id="retratosTexto"></p></div><div class="fila" id="retratosFila"></div></div>
     </div>
   </section>
 
@@ -271,7 +331,7 @@
           <path d="M60 -10 C70 80 40 160 80 310"/><path d="M190 -10 C200 90 170 200 210 310"/><path d="M320 -10 C310 100 340 190 300 310"/>
           <circle cx="205" cy="215" r="10" fill="#FF8A00" stroke="none"/>
         </svg>
-        <strong>En pleno casco antiguo</strong>
+        <strong id="mapaTitulo">En pleno casco antiguo</strong>
         <span>Abrir en Google Maps</span>
       </a>
     </div>
@@ -362,6 +422,24 @@
     $("ayudaForm").textContent = "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a " + E.email + ".";
   });
 
+
+  // La puerta
+  if (M.puerta) {
+    const b = $("puertaBtn");
+    b.style.backgroundImage = `url("${M.puerta.detras}")`;
+    b.querySelectorAll(".hoja-p").forEach(h => h.style.backgroundImage = `url("${M.puerta.foto}")`);
+    const pon = abierta => {
+      b.classList.toggle("abierta", abierta);
+      b.setAttribute("aria-pressed", abierta);
+      b.setAttribute("aria-label", abierta ? "Cerrar la puerta" : "Abrir la puerta");
+      $("revelado").textContent = abierta ? "Sorpresa: el jardín interior más grande de Menorca, a la sombra de un ficus enorme." : "";
+      $("cerrarPuerta").hidden = !abierta;
+    };
+    b.addEventListener("click", () => pon(!b.classList.contains("abierta")));
+    $("cerrarPuerta").addEventListener("click", () => pon(false));
+  } else { $("puerta").hidden = true; }
+  if (M.fotoDJ) { const f = $("fotoDJ"); f.src = M.fotoDJ; f.hidden = false; }
+
   // Fotos
   $("presentacion").textContent = M.presentacion;
   const fotos = M.fotos || [];
@@ -369,6 +447,20 @@
   $("galeria").innerHTML = fotos.length
     ? fotos.map(f => `<figure><img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">${f.texto ? `<figcaption>${esc(f.texto)}</figcaption>` : ""}</figure>`).join("")
     : huecos.map(t => `<figure class="hueco"><span>Foto: ${t}</span></figure>`).join("");
+
+  // Retratos
+  if (M.retratos && M.retratos.fotos && M.retratos.fotos.length) {
+    $("retratosTitulo").textContent = M.retratos.titulo || "";
+    $("retratosTexto").textContent = M.retratos.texto || "";
+    $("retratosFila").innerHTML = M.retratos.fotos.map(f => `<img src="${esc(f)}" alt="Estampita antigua de una actriz, pegada en una ventana de la fábrica" loading="lazy">`).join("");
+    $("retratos").hidden = false;
+  }
+  // Cartel de la entrada
+  if (M.fotoEntrada) {
+    const t = $("tarjetaMapa");
+    t.classList.add("con-foto"); t.style.backgroundImage = `url("${M.fotoEntrada}")`;
+    t.querySelector("svg").remove(); $("mapaTitulo").textContent = "Busca este cartel";
+  }
 
   // Dónde
   $("direccion").innerHTML = `${esc(M.direccion)}<br>${esc(M.ciudad)}`;
