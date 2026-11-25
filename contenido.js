@@ -32,7 +32,6 @@ window.MARGARETE = {
   redes: [
     { nombre: "Instagram", url: "https://instagram.com/lamargaretemenorca" },
     { nombre: "Facebook", url: "https://facebook.com/lamargarete" },
-    { nombre: "X (Twitter)", url: "https://twitter.com/lamargarete" },
     { nombre: "TikTok", url: "" },
   ],
 
