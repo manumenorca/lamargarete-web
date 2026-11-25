@@ -70,9 +70,10 @@ window.MARGARETE = {
   temporadaVerano: false, // cócteles y comida: solo en verano (desde junio)
   cartaPdf: "", // sin PDF descargable: la carta está en la propia web
   notaCarta: {
-    es: "Suplemento de Red Bull en cualquier consumición: +1 €.", ca: "Suplement de Red Bull a qualsevol consumició: +1 €.",
-    en: "Red Bull supplement on any drink: +€1.",
-    fr: "Supplément Red Bull sur toute consommation : +1 €.",
+    es: "Suplemento de Red Bull en las copas: +1 €.",
+    ca: "Suplement de Red Bull a les copes: +1 €.",
+    en: "Red Bull as a mixer in spirits: +€1.",
+    fr: "Supplément Red Bull dans les alcools : +1 €.",
   },
   carta: [
     {
@@ -179,7 +180,7 @@ window.MARGARETE = {
         { nombre: { es: "Tónica, tónica pink, ginger ale", ca: "Tònica, tònica pink, ginger ale", en: "Tonic, pink tonic, ginger ale", fr: "Tonic, tonic pink, ginger ale" }, precio: 3 },
         { nombre: "Red Bull", precio: 3.5 },
         { titulo: { es: "Zumos", ca: "Sucs", en: "Juices", fr: "Jus" } },
-        { nombre: { es: "Piña, naranja, melocotón, tomate", ca: "Pinya, taronja, préssec, tomàtiga", en: "Pineapple, orange, peach, tomato", fr: "Ananas, orange, pêche, tomate" }, precio: 3 },
+        { nombre: { es: "Piña, naranja, melocotón, tomate", ca: "Pinya, taronja, melicotó, tomàtiga", en: "Pineapple, orange, peach, tomato", fr: "Ananas, orange, pêche, tomate" }, precio: 3 },
       ],
     },
     {
