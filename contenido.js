@@ -203,7 +203,8 @@ window.MARGARETE = {
   // Las estampitas de la ventana (vacío = no sale)
   retratos: {
     titulo: "Las actrices de la ventana",
-    texto: "Las trabajadoras de la fábrica pegaron en una ventana estampitas de las actrices de su época. Todavía siguen ahí. ¿Sabrás encontrarlas?",
+    texto: "Las trabajadoras de la fábrica pegaron en una ventana estampitas de las actrices de su época, y ahí siguen. Quién sabe, a lo mejor las pegó tu abuela. ¿Las reconoces? Te damos una pista: una es Ava Gardner. Búscalas, hazles una foto y etiquétanos.",
+    etiqueta: "@lamargaretemenorca", // enlaza al Instagram
     fotos: ["fotos/retrato-1.jpg", "fotos/retrato-2.jpg", "fotos/retrato-3.jpg", "fotos/retrato-4.jpg"],
   },
 

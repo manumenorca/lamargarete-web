@@ -160,7 +160,8 @@
   .retratos{margin-top:clamp(3rem,7vw,5rem);display:grid;grid-template-columns:minmax(220px,1fr) 3fr;gap:2rem;align-items:center}
   @media (max-width:760px){.retratos{grid-template-columns:1fr}}
   .retratos-t{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.5vw,2.8rem);line-height:.95;color:var(--ficus);margin-bottom:.75rem}
-  .retratos p{font-size:1.15rem;max-width:28ch}
+  .retratos p{font-size:1.15rem;max-width:30ch}
+  .retratos .etiqueta{margin-top:1.1rem}
   .retratos .fila{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
   @media (max-width:520px){.retratos .fila{grid-template-columns:repeat(2,1fr)}}
   .retratos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:10px}
@@ -337,7 +338,7 @@
       <h2 id="t-fotos">La antigua fábrica</h2>
       <p class="intro" id="presentacion"></p>
       <div class="galeria" id="galeria"></div>
-      <div class="retratos" id="retratos" hidden><div><h3 class="retratos-t" id="retratosTitulo"></h3><p id="retratosTexto"></p></div><div class="fila" id="retratosFila"></div></div>
+      <div class="retratos" id="retratos" hidden><div><h3 class="retratos-t" id="retratosTitulo"></h3><p id="retratosTexto"></p><p id="retratosEtiqueta" class="etiqueta" hidden><a class="boton oscuro" target="_blank" rel="noopener"></a></p></div><div class="fila" id="retratosFila"></div></div>
     </div>
   </section>
 
@@ -477,6 +478,8 @@
   if (M.retratos && M.retratos.fotos && M.retratos.fotos.length) {
     $("retratosTitulo").textContent = M.retratos.titulo || "";
     $("retratosTexto").textContent = M.retratos.texto || "";
+    const insta = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
+    if (M.retratos.etiqueta && insta) { const e = $("retratosEtiqueta"); e.querySelector("a").href = insta.url; e.querySelector("a").textContent = M.retratos.etiqueta; e.hidden = false; }
     $("retratosFila").innerHTML = M.retratos.fotos.map(f => `<img src="${esc(f)}" alt="Estampita antigua de una actriz, pegada en una ventana de la fábrica" loading="lazy">`).join("");
     $("retratos").hidden = false;
   }
