@@ -9,28 +9,30 @@
 window.MARGARETE = {
 
   // ---------- Datos básicos ----------
-  lema: "Bar y jardín en el casco antiguo de Ciutadella",
+  lema: "Jardín de copas en el casco antiguo de Ciutadella",
   presentacion:
-    "Una antigua fábrica de zapatos convertida en bar, con un patio interior a la sombra de un ficus enorme. Cócteles, música en directo, DJs y teatro.",
+    "Escondido en el casco antiguo de Ciutadella está el jardín más grande de Menorca: una antigua fábrica de zapatos con un patio a la sombra de un ficus enorme. Cócteles, música en directo, DJs y teatro.",
   direccion: "Carrer de Sant Joan Baptista, 6",
   ciudad: "07760 Ciutadella de Menorca",
   telefono: "+34 619 842 438",
-  email: "", // p. ej. "hola@lamargarete.com" (vacío = no se muestra)
+  email: "lamargarete@gmail.com", // vacío ("") = no se muestra
   mapa: "https://www.google.com/maps/search/?api=1&query=La+Margarete+Carrer+de+Sant+Joan+Baptista+6+Ciutadella",
 
   // ---------- Horario ----------
   // aviso: un mensaje que sale arriba del todo (vacío = no sale nada)
   aviso: "",
   horario: [
-    { dias: "Lunes a sábado", horas: "19:00 – 01:30" },
-    { dias: "Domingo", horas: "Cerrado" },
+    { dias: "Viernes", horas: "Desde las 19:00" },
+    { dias: "Sábado (tardeo)", horas: "Desde las 16:00" },
   ],
+  reservas: "Sin reservas: por orden de llegada.",
 
   // ---------- Redes sociales ----------
   // Deja la url vacía ("") para que no aparezca
   redes: [
     { nombre: "Instagram", url: "https://instagram.com/lamargaretemenorca" },
-    { nombre: "Facebook", url: "" },
+    { nombre: "Facebook", url: "https://facebook.com/lamargarete" },
+    { nombre: "X (Twitter)", url: "https://twitter.com/lamargarete" },
     { nombre: "TikTok", url: "" },
     { nombre: "WhatsApp", url: "https://wa.me/34619842438" },
   ],
@@ -38,6 +40,8 @@ window.MARGARETE = {
   // ---------- Carta ----------
   // soloVerano: true  -> esa sección solo se muestra si temporadaVerano es true
   temporadaVerano: true,
+  // cartaPdf: enlace a la carta en PDF (vacío = no se muestra el botón)
+  cartaPdf: "",
   carta: [
     {
       seccion: "Cócteles",
