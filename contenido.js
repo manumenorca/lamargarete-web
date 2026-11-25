@@ -42,22 +42,24 @@ window.MARGARETE = {
   //   { nombre, desc, precio: 10 }                   -> un precio
   //   { nombre, desc, precios: [["Copa", 4], ["Botella", 20]] }  -> varios precios
   // Los precios van como número (5.5 = 5,50 €).
-  // soloVerano: true -> esa sección solo se ve si temporadaVerano es true
-  temporadaVerano: false, // la comida vuelve en junio
+  // soloVerano: true -> esa sección solo se ve si temporadaVerano es true (cócteles y comida)
+  temporadaVerano: false, // cócteles y comida: solo en verano (desde junio)
   cartaPdf: "carta/carta-bebidas.pdf", // vacío ("") = sin botón de descarga
   notaCarta: "Suplemento de Red Bull en cualquier consumición: +1 €.",
   carta: [
     {
-      seccion: "Cócteles",
+      seccion: "Cervezas",
       platos: [
-        { nombre: "Mojito, caipirinha y caipiroska", desc: "Además de los clásicos, te los podemos hacer de fresa, maracuyá o mango.", precio: 10 },
-        { nombre: "Sant Joan Six", desc: "Una reinterpretación del clásico caipiriña en clave isleña: gin Xoriguer, lima, limón y un delicioso toque de licor de hierbas menorquinas.", precio: 10 },
-        { nombre: "Negroni", desc: "Un cóctel fuerte para paladares curiosos: Gin Mare, vermouth dulce y Campari.", precio: 10 },
-        { nombre: "La frozen margarita de la margarete", desc: "Con lima y jengibre. La primera con «j» y la segunda con «g». Si no te tomas una margarita en la margarete, ya me contarás… ¡Y está granizada!", precio: 10 },
-        { nombre: "Piña colada", desc: "If you like… Ron, piña y batida de coco.", precio: 10 },
-        { titulo: "Además" },
-        { nombre: "Mojito sin alcohol", precio: 7 },
-        { nombre: "Aperol Spritz", precio: 8 },
+        { nombre: "Caña mediana", precio: 3 },
+        { nombre: "Caña grande", precio: 5 },
+        { titulo: "Medianas (1/3)" },
+        { nombre: "Estrella", precio: 4 },
+        { nombre: "Estrella Galicia", precio: 4 },
+        { nombre: "Coronita", precio: 5 },
+        { nombre: "Alhambra", precio: 5 },
+        { nombre: "Voll-Damm", precio: 5 },
+        { nombre: "Daura sin gluten", precio: 5 },
+        { nombre: "Sin alcohol", precio: 4 },
       ],
     },
     {
@@ -76,21 +78,6 @@ window.MARGARETE = {
         { nombre: "Tinto de verano", precios: [["Copa ancha", 5.5], ["Jarra de 1 litro", 15]] },
         { nombre: "Kalimotxo", precios: [["Copa ancha", 4.5], ["Jarra de 1 litro", 12]] },
         { nombre: "Benjamín de cava", precio: 6 },
-      ],
-    },
-    {
-      seccion: "Cervezas",
-      platos: [
-        { nombre: "Caña mediana", precio: 3 },
-        { nombre: "Caña grande", precio: 5 },
-        { titulo: "Medianas (1/3)" },
-        { nombre: "Estrella", precio: 4 },
-        { nombre: "Estrella Galicia", precio: 4 },
-        { nombre: "Coronita", precio: 5 },
-        { nombre: "Alhambra", precio: 5 },
-        { nombre: "Voll-Damm", precio: 5 },
-        { nombre: "Daura sin gluten", precio: 5 },
-        { nombre: "Sin alcohol", precio: 4 },
       ],
     },
     {
@@ -151,6 +138,26 @@ window.MARGARETE = {
         { nombre: "Hierbas mallorquinas, Campari, Licor 43, Pacharán, Baileys, Fernet, Frangelico, Amaretto, Tequila, Cointreau, Malibú, Jägermeister, crema de orujo, Anís del Mono", precios: [["Chupito", 2.5], ["Copa ancha", 6.5], ["Combinado", 10]] },
         { nombre: "Vermouth Izaguirre", precio: 5.5 },
         { nombre: "Martini Rosso / Martini Bianco", precio: 6.5 },
+      ],
+    },
+    {
+      seccion: "Refrescos y agua",
+      platos: [
+        // Pendiente: lista y precios (agua, refrescos, zumos, tónica...). Vacío = no sale.
+      ],
+    },
+    {
+      seccion: "Cócteles",
+      soloVerano: true, // solo hacemos cócteles en verano
+      platos: [
+        { nombre: "Mojito, caipirinha y caipiroska", desc: "Además de los clásicos, te los podemos hacer de fresa, maracuyá o mango.", precio: 10 },
+        { nombre: "Sant Joan Six", desc: "Una reinterpretación del clásico caipiriña en clave isleña: gin Xoriguer, lima, limón y un delicioso toque de licor de hierbas menorquinas.", precio: 10 },
+        { nombre: "Negroni", desc: "Un cóctel fuerte para paladares curiosos: Gin Mare, vermouth dulce y Campari.", precio: 10 },
+        { nombre: "La frozen margarita de la margarete", desc: "Con lima y jengibre. La primera con «j» y la segunda con «g». Si no te tomas una margarita en la margarete, ya me contarás… ¡Y está granizada!", precio: 10 },
+        { nombre: "Piña colada", desc: "If you like… Ron, piña y batida de coco.", precio: 10 },
+        { titulo: "Además" },
+        { nombre: "Mojito sin alcohol", precio: 7 },
+        { nombre: "Aperol Spritz", precio: 8 },
       ],
     },
     {
