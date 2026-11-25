@@ -453,7 +453,7 @@
     "Botella":    { es: "Botella", ca: "Botella", en: "Bottle", fr: "Bouteille" },
     "Copa ancha": { es: "Copa ancha", ca: "Copa ampla", en: "Large glass", fr: "Grand verre" },
     "Jarra de 1 litro": { es: "Jarra de 1 litro", ca: "Gerra d'1 litre", en: "1-litre jug", fr: "Pichet d'1 litre" },
-    "Chupito":    { es: "Chupito", ca: "Xopet", en: "Shot", fr: "Shot" },
+    "Chupito":    { es: "Chupito", ca: "Xupito", en: "Shot", fr: "Shot" },
     "Combinado":  { es: "Combinado", ca: "Combinat", en: "With mixer", fr: "Long drink" },
   };
   const IDIOMAS = ["ca", "es", "en", "fr"];
@@ -470,7 +470,14 @@
     const q = new URLSearchParams(location.search).get("lang");
     if (IDIOMAS.includes(q)) return q;
     try { const g = localStorage.getItem("idioma"); if (IDIOMAS.includes(g)) return g; } catch (e) {}
-    return "ca"; // por defecto, siempre en catalán (cada visitante puede cambiarlo con los botones)
+    // Móviles en francés o inglés: en su idioma. Todos los demás: en catalán (con botones para cambiar)
+    for (const n of (navigator.languages || [navigator.language || ""])) {
+      const c = String(n).slice(0, 2).toLowerCase();
+      if (c === "fr") return "fr";
+      if (c === "en") return "en";
+      if (c === "ca" || c === "es") break;
+    }
+    return "ca";
   }
 
   // ---------- Partes fijas (no dependen del idioma) ----------
