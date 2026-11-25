@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Margarete · Bar y jardín en Ciutadella, Menorca</title>
+<meta name="description" content="Bar de cócteles con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, música en directo, DJs y teatro.">
+<meta property="og:title" content="La Margarete, Ciutadella">
+<meta property="og:description" content="Cócteles, jardín y música en directo en el casco antiguo de Ciutadella.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#16291F">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2316291F'/><text x='32' y='46' font-family='Arial Black,sans-serif' font-size='38' text-anchor='middle' fill='%23D8B27A'>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;800;900&family=Figtree:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --hoja:#16291F;      /* verde ficus oscuro */
+    --ficus:#2C4A36;     /* verde hoja */
+    --cal:#EDF0E9;       /* pared encalada */
+    --mares:#D8B27A;     /* piedra de marès */
+    --buganvilla:#B3315F;/* acento */
+    --tinta:#1A221D;
+    --gris:#5C6860;
+    --display:"Big Shoulders Display", "Arial Narrow", sans-serif;
+    --texto:"Figtree", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--texto);font-size:1.0625rem;line-height:1.55;color:var(--tinta);background:var(--cal);-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--buganvilla);outline-offset:3px;border-radius:4px}
+  .envoltura{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+  /* ---------- Aviso ---------- */
+  .aviso{background:var(--buganvilla);color:#fff;text-align:center;padding:.55rem 1rem;font-weight:500;font-size:.95rem}
+
+  /* ---------- Navegación ---------- */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(22,41,31,.92);backdrop-filter:blur(8px);color:var(--cal)}
+  .nav .envoltura{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:3.5rem}
+  .nav .marca{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:.01em;text-decoration:none;line-height:1}
+  .nav ul{display:flex;gap:1.4rem;list-style:none}
+  .nav ul a{text-decoration:none;font-weight:500;font-size:.98rem;opacity:.85}
+  .nav ul a:hover{opacity:1;color:var(--mares)}
+  @media (max-width:560px){.nav ul{gap:1rem}.nav ul li.opc{display:none}}
+
+  /* ---------- Portada ---------- */
+  .portada{position:relative;background:var(--hoja);color:var(--cal);overflow:hidden;min-height:min(92vh,820px);display:flex;align-items:flex-end;isolation:isolate}
+  .portada .foto{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
+  .portada .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,31,.25) 0%,rgba(22,41,31,.85) 70%,var(--hoja) 100%)}
+  .portada .sombra{position:absolute;z-index:-1;right:-8%;top:-10%;width:75%;max-width:900px;color:var(--ficus);opacity:.75;pointer-events:none}
+  .portada .envoltura{padding-block:6rem 3rem}
+  .rotulo{font-family:var(--display);font-weight:900;line-height:.82;letter-spacing:-.005em;font-size:clamp(4.6rem,19vw,15.5rem);color:var(--cal)}
+  .rotulo span{display:block}
+  .rotulo .la{font-weight:500;font-size:.42em;color:var(--mares);line-height:1;margin-bottom:.06em}
+  .portada .lema{font-size:clamp(1.15rem,2.4vw,1.45rem);max-width:30ch;margin-top:1.6rem;line-height:1.35}
+  .portada .hoy{margin-top:.6rem;color:var(--mares);font-weight:500}
+  .botones{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+  .boton{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--mares);transition:background .2s,color .2s}
+  .boton.lleno{background:var(--mares);color:var(--hoja)}
+  .boton.lleno:hover{background:var(--cal);border-color:var(--cal)}
+  .boton.linea{color:var(--cal)}
+  .boton.linea:hover{background:var(--mares);color:var(--hoja)}
+  @media (prefers-reduced-motion:no-preference){
+    .rotulo span{animation:sube .9s cubic-bezier(.2,.7,.2,1) both}
+    .rotulo span:nth-child(2){animation-delay:.12s}
+    @keyframes sube{from{transform:translateY(.25em);opacity:0}to{transform:none;opacity:1}}
+  }
+
+  /* ---------- Secciones ---------- */
+  section.bloque{padding-block:clamp(4rem,9vw,7rem)}
+  h2{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,7vw,4.8rem);line-height:.9;letter-spacing:.005em;margin-bottom:1.25rem}
+  .intro{max-width:56ch;color:var(--gris);font-size:1.1rem}
+
+  /* ---------- Carta ---------- */
+  .carta-cab{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem;margin-bottom:2.25rem}
+  .pestanas{display:flex;flex-wrap:wrap;gap:.5rem}
+  .pestanas button{font:inherit;font-weight:500;font-size:.98rem;padding:.5rem 1rem;border-radius:999px;border:1.5px solid var(--ficus);background:transparent;color:var(--ficus);cursor:pointer}
+  .pestanas button[aria-selected="true"]{background:var(--ficus);color:var(--cal)}
+  .pestanas button:hover:not([aria-selected="true"]){background:rgba(44,74,54,.08)}
+  .platos{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:3.5rem}
+  .plato{display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem;padding:1.05rem 0;border-bottom:1px solid rgba(26,34,29,.14)}
+  .plato .n{font-weight:700;font-size:1.1rem}
+  .plato .p{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1;color:var(--buganvilla);align-self:start}
+  .plato .d{grid-column:1/-1;color:var(--gris);font-size:.97rem}
+  .nota-carta{margin-top:1.75rem;color:var(--gris);font-size:.93rem}
+
+  /* ---------- Agenda ---------- */
+  .agenda{background:var(--hoja);color:var(--cal)}
+  .agenda .intro{color:rgba(237,240,233,.75)}
+  .eventos{list-style:none;margin-top:2rem}
+  .evento{display:grid;grid-template-columns:6.5rem 1fr;gap:1.5rem;align-items:center;padding:1.3rem 0;border-top:1px solid rgba(216,178,122,.3)}
+  .evento:last-child{border-bottom:1px solid rgba(216,178,122,.3)}
+  .evento .dia{font-family:var(--display);font-weight:900;font-size:3.2rem;line-height:.85;color:var(--mares)}
+  .evento .dia small{display:block;font-weight:500;font-size:1.05rem;line-height:1.2;margin-top:.3rem}
+  .evento .t{font-weight:700;font-size:1.25rem}
+  .evento .meta{color:rgba(237,240,233,.7);font-size:.95rem}
+  .vacio{margin-top:2rem;padding:1.75rem;border:1.5px dashed rgba(216,178,122,.5);border-radius:14px;max-width:40rem}
+  .vacio a{color:var(--mares);font-weight:700}
+
+  /* ---------- Fotos ---------- */
+  .galeria{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(130px,17vw,220px);gap:.75rem;margin-top:2.25rem}
+  .galeria figure{position:relative;border-radius:14px;overflow:hidden;background:var(--ficus)}
+  .galeria figure:nth-child(6n+1){grid-column:span 4;grid-row:span 2}
+  .galeria figure:nth-child(6n+2),.galeria figure:nth-child(6n+3){grid-column:span 2}
+  .galeria figure:nth-child(6n+4),.galeria figure:nth-child(6n+5),.galeria figure:nth-child(6n+6){grid-column:span 2}
+  .galeria img{width:100%;height:100%;object-fit:cover}
+  .galeria figcaption{position:absolute;left:.75rem;bottom:.6rem;color:#fff;font-size:.88rem;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+  .galeria .hueco{display:flex;align-items:center;justify-content:center;color:rgba(237,240,233,.55);font-size:.95rem;text-align:center;padding:1rem;background:repeating-linear-gradient(135deg,var(--ficus) 0 14px,#30513b 14px 28px)}
+  @media (max-width:700px){
+    .galeria{grid-template-columns:1fr 1fr}
+    .galeria figure:nth-child(n){grid-column:span 1;grid-row:span 1}
+    .galeria figure:nth-child(3n+1){grid-column:span 2}
+  }
+
+  /* ---------- Dónde ---------- */
+  .donde .rejilla{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+  @media (max-width:800px){.donde .rejilla{grid-template-columns:1fr}}
+  .direccion{font-size:1.35rem;line-height:1.35;font-weight:500;margin-bottom:1.5rem}
+  .horario{list-style:none;margin-bottom:1.75rem}
+  .horario li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(26,34,29,.14);max-width:26rem}
+  .horario li span:last-child{font-weight:700}
+  .contacto a{font-weight:700;text-decoration-color:var(--buganvilla);text-underline-offset:3px}
+  .tarjeta-mapa{display:block;text-decoration:none;background:var(--ficus);color:var(--cal);border-radius:18px;padding:2rem;min-height:15rem;position:relative;overflow:hidden}
+  .tarjeta-mapa svg{position:absolute;inset:0;width:100%;height:100%;opacity:.35}
+  .tarjeta-mapa strong{position:relative;font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;display:block}
+  .tarjeta-mapa span{position:relative;display:inline-block;margin-top:.75rem;font-weight:500;border-bottom:2px solid var(--mares)}
+  .tarjeta-mapa:hover span{color:var(--mares)}
+  .boton.oscuro{color:var(--hoja);border-color:var(--hoja)}
+  .boton.oscuro:hover{background:var(--hoja);color:var(--cal)}
+
+  /* ---------- Pie ---------- */
+  footer{background:var(--tinta);color:var(--cal);padding-block:3.5rem 2.5rem}
+  footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:end}
+  footer .marca{font-family:var(--display);font-weight:900;font-size:clamp(2.5rem,6vw,4rem);line-height:.85;color:var(--mares)}
+  .redes{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none}
+  .redes a{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.05rem;border-radius:999px;border:1.5px solid rgba(237,240,233,.35);text-decoration:none;font-weight:500}
+  .redes a:hover{border-color:var(--mares);color:var(--mares)}
+  .redes svg{width:18px;height:18px}
+  .legal{width:100%;color:rgba(237,240,233,.5);font-size:.85rem}
+</style>
+</head>
+<body>
+
+<div class="aviso" id="aviso" hidden></div>
+
+<nav class="nav" aria-label="Principal">
+  <div class="envoltura">
+    <a class="marca" href="#inicio">La Margarete</a>
+    <ul>
+      <li><a href="#carta">Carta</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li class="opc"><a href="#fotos">Fotos</a></li>
+      <li><a href="#donde">Dónde</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="portada" id="inicio">
+  <div class="foto" id="fotoPortada" hidden></div>
+  <!-- Sombra de hojas de ficus -->
+  <svg class="sombra" viewBox="0 0 600 600" aria-hidden="true" fill="currentColor">
+    <g transform="rotate(-18 300 300)">
+      <path d="M300 40c70 40 110 120 95 200-12 62-55 105-95 130-40-25-83-68-95-130-15-80 25-160 95-200z"/>
+      <path d="M470 210c60 10 105 60 110 120 4 50-20 90-45 112-35-8-80-30-100-80-25-62-10-120 35-152z"/>
+      <path d="M140 230c-45 25-70 80-60 132 8 42 38 72 62 85 28-14 60-44 66-92 8-58-20-105-68-125z"/>
+      <path d="M330 380c55 15 90 65 88 115-2 38-25 66-45 80-30-8-62-32-72-75-12-52 0-95 29-120z"/>
+      <path d="M298 75v300M478 225l-50 190M150 250l20 170M335 395l20 170" stroke="#16291F" stroke-width="4" fill="none" opacity=".5"/>
+    </g>
+  </svg>
+  <div class="envoltura">
+    <h1 class="rotulo"><span class="la">La</span><span>Margarete</span></h1>
+    <p class="lema" id="lema"></p>
+    <p class="hoy" id="hoy"></p>
+    <div class="botones">
+      <a class="boton lleno" href="#carta">Ver la carta</a>
+      <a class="boton linea" id="btnMapa" href="#donde" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="bloque" id="carta" aria-labelledby="t-carta">
+    <div class="envoltura">
+      <div class="carta-cab">
+        <div>
+          <h2 id="t-carta">La carta</h2>
+        </div>
+        <div class="pestanas" role="tablist" aria-label="Secciones de la carta" id="pestanas"></div>
+      </div>
+      <ul class="platos" id="platos" role="tabpanel"></ul>
+      <p class="nota-carta">Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.</p>
+    </div>
+  </section>
+
+  <section class="bloque agenda" id="agenda" aria-labelledby="t-agenda">
+    <div class="envoltura">
+      <h2 id="t-agenda">En el jardín</h2>
+      <p class="intro">Música en directo, sesiones de DJ y teatro entre las mesas.</p>
+      <div id="eventos"></div>
+    </div>
+  </section>
+
+  <section class="bloque" id="fotos" aria-labelledby="t-fotos">
+    <div class="envoltura">
+      <h2 id="t-fotos">La antigua fábrica</h2>
+      <p class="intro" id="presentacion"></p>
+      <div class="galeria" id="galeria"></div>
+    </div>
+  </section>
+
+  <section class="bloque donde" id="donde" aria-labelledby="t-donde">
+    <div class="envoltura rejilla">
+      <div>
+        <h2 id="t-donde">Dónde estamos</h2>
+        <p class="direccion" id="direccion"></p>
+        <ul class="horario" id="horario"></ul>
+        <p class="contacto" id="contacto"></p>
+      </div>
+      <a class="tarjeta-mapa" id="tarjetaMapa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="#D8B27A" stroke-width="2">
+          <path d="M-10 60 C80 80 120 40 210 70 S340 50 420 90"/><path d="M-10 160 C60 150 140 190 230 160 S350 140 420 170"/>
+          <path d="M60 -10 C70 80 40 160 80 310"/><path d="M190 -10 C200 90 170 200 210 310"/><path d="M320 -10 C310 100 340 190 300 310"/>
+          <circle cx="205" cy="215" r="10" fill="#B3315F" stroke="none"/>
+        </svg>
+        <strong>En pleno casco antiguo</strong>
+        <span>Abrir en Google Maps</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <div class="marca">La<br>Margarete</div>
+    <ul class="redes" id="redes" aria-label="Redes sociales"></ul>
+    <p class="legal" id="legal"></p>
+  </div>
+</footer>
+
+<script src="contenido.js"></script>
+<script>
+(function(){
+  const M = window.MARGARETE;
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  // Aviso
+  if (M.aviso) { $("aviso").textContent = M.aviso; $("aviso").hidden = false; }
+
+  // Portada
+  $("lema").textContent = M.lema;
+  if (M.horario && M.horario[0]) $("hoy").textContent = M.horario.filter(h => !/cerrado/i.test(h.horas)).map(h => `${h.dias}, ${h.horas}`).join(". ");
+  if (M.portada) { const f = $("fotoPortada"); f.style.backgroundImage = `url("${M.portada}")`; f.hidden = false; }
+  $("btnMapa").href = M.mapa; $("tarjetaMapa").href = M.mapa;
+
+  // Carta
+  const secciones = M.carta.filter(s => !s.soloVerano || M.temporadaVerano);
+  const pest = $("pestanas"), lista = $("platos");
+  function mostrar(i){
+    [...pest.children].forEach((b,j) => { b.setAttribute("aria-selected", i===j); b.tabIndex = i===j ? 0 : -1; });
+    lista.setAttribute("aria-label", secciones[i].seccion);
+    lista.innerHTML = secciones[i].platos.map(p => `
+      <li class="plato"><span class="n">${esc(p.nombre)}</span><span class="p">${esc(p.precio)}${p.precio ? " €" : ""}</span>${p.desc ? `<span class="d">${esc(p.desc)}</span>` : ""}</li>`).join("");
+  }
+  secciones.forEach((s,i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.role = "tab"; b.textContent = s.seccion;
+    b.addEventListener("click", () => mostrar(i));
+    b.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        const n = (i + (e.key === "ArrowRight" ? 1 : -1) + secciones.length) % secciones.length;
+        mostrar(n); pest.children[n].focus();
+      }
+    });
+    pest.appendChild(b);
+  });
+  if (secciones.length) mostrar(0);
+
+  // Agenda
+  const hoy = new Date(); hoy.setHours(0,0,0,0);
+  const prox = (M.agenda || []).filter(e => new Date(e.fecha + "T23:59") >= hoy).sort((a,b) => a.fecha.localeCompare(b.fecha));
+  const ig = (M.redes || []).find(r => r.nombre === "Instagram" && r.url);
+  if (prox.length) {
+    $("eventos").innerHTML = `<ul class="eventos">` + prox.map(e => {
+      const d = new Date(e.fecha + "T12:00");
+      const dia = d.toLocaleDateString("es-ES",{day:"numeric"});
+      const resto = d.toLocaleDateString("es-ES",{weekday:"short", month:"short"});
+      return `<li class="evento"><div class="dia">${dia}<small>${esc(resto)}</small></div><div><div class="t">${esc(e.titulo)}</div><div class="meta">${esc([e.tipo, e.hora].filter(Boolean).join(", "))}</div></div></li>`;
+    }).join("") + `</ul>`;
+  } else {
+    $("eventos").innerHTML = `<div class="vacio"><p>${esc(M.agendaVacia)}</p>${ig ? `<p style="margin-top:.75rem"><a href="${esc(ig.url)}" target="_blank" rel="noopener">Seguir en Instagram</a></p>` : ""}</div>`;
+  }
+
+  // Fotos
+  $("presentacion").textContent = M.presentacion;
+  const fotos = M.fotos || [];
+  const huecos = ["El jardín y el ficus", "La barra", "Un cóctel", "Concierto", "La fábrica", "Una noche de verano"];
+  $("galeria").innerHTML = fotos.length
+    ? fotos.map(f => `<figure><img src="${esc(f.archivo)}" alt="${esc(f.texto)}" loading="lazy">${f.texto ? `<figcaption>${esc(f.texto)}</figcaption>` : ""}</figure>`).join("")
+    : huecos.map(t => `<figure class="hueco"><span>Foto: ${t}</span></figure>`).join("");
+
+  // Dónde
+  $("direccion").innerHTML = `${esc(M.direccion)}<br>${esc(M.ciudad)}`;
+  $("horario").innerHTML = M.horario.map(h => `<li><span>${esc(h.dias)}</span><span>${esc(h.horas)}</span></li>`).join("");
+  const c = [];
+  if (M.telefono) c.push(`Teléfono: <a href="tel:${M.telefono.replace(/\s/g,"")}">${esc(M.telefono)}</a>`);
+  if (M.email) c.push(`Email: <a href="mailto:${esc(M.email)}">${esc(M.email)}</a>`);
+  $("contacto").innerHTML = c.join("<br>");
+
+  // Redes
+  const iconos = {
+    Instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+    Facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V11H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>',
+    TikTok:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.4 2.4 1.9 3.9 4.2 4.1v3.4c-1.6 0-3-.5-4.2-1.3V16a6 6 0 1 1-6-6v3.4A2.6 2.6 0 1 0 12.6 16V3H16z"/></svg>',
+    WhatsApp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7L4 20z"/><path d="M9 9.5c.3 2 2.2 4.3 4.6 5 .6.2 1.4-.6 1.6-1.1l-1.6-.9-.8.7c-1-.4-2-1.4-2.4-2.4l.7-.8-.8-1.6c-.6.1-1.4.6-1.3 1.1z" fill="currentColor" stroke="none"/></svg>'
+  };
+  $("redes").innerHTML = (M.redes || []).filter(r => r.url).map(r =>
+    `<li><a href="${esc(r.url)}" target="_blank" rel="noopener">${iconos[r.nombre] || ""}${esc(r.nombre)}</a></li>`).join("");
+
+  $("legal").textContent = `© ${new Date().getFullYear()} La Margarete, Ciutadella de Menorca`;
+})();
+</script>
+</body>
+</html>
