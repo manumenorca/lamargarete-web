@@ -8,6 +8,7 @@
 <meta property="og:title" content="La Margarete, Ciutadella">
 <meta property="og:description" content="Cócteles, jardín y DJs en el casco antiguo de Ciutadella.">
 <meta property="og:type" content="website">
+<link rel="alternate" hreflang="ca" href="?lang=ca">
 <link rel="alternate" hreflang="es" href="?lang=es">
 <link rel="alternate" hreflang="en" href="?lang=en">
 <link rel="alternate" hreflang="fr" href="?lang=fr">
@@ -248,7 +249,8 @@
   .idiomas button:hover{opacity:1}
   .idiomas button[aria-pressed="true"]{border-color:var(--naranja);color:var(--naranja);opacity:1}
   @media (max-width:520px){.nav ul li.mov-oculto{display:none}.idiomas{margin-left:.5rem}}
-  @media (max-width:400px){.idiomas button{min-width:2.2rem;font-size:.76rem;padding:0 .25rem}}
+  @media (max-width:440px){.nav ul{display:none}.idiomas{margin-left:auto}}
+  @media (max-width:400px){.idiomas button{min-width:2.3rem;font-size:.76rem;padding:0 .25rem}}
 </style>
 </head>
 <body>
@@ -266,7 +268,8 @@
       <li class="mov-oculto"><a href="#donde" data-t="navDonde"></a></li>
     </ul>
     <div class="idiomas" role="group" id="idiomas">
-      <button type="button" data-lang="es" lang="es" aria-label="Español">ES</button>
+      <button type="button" data-lang="ca" lang="ca" aria-label="Català">CA</button>
+      <button type="button" data-lang="es" lang="es" aria-label="Castellano">ES</button>
       <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
       <button type="button" data-lang="fr" lang="fr" aria-label="Français">FR</button>
     </div>
@@ -399,62 +402,62 @@
 
   // ---------- Textos fijos de la web, en los tres idiomas ----------
   const UI = {
-    titulo:       { es: "La Margarete · Jardín de copas en Ciutadella, Menorca", en: "La Margarete · Garden bar in Ciutadella, Menorca", fr: "La Margarete · Bar-jardin à Ciutadella, Minorque" },
-    descripcion:  { es: "Bar con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, DJs los viernes y sábados, eventos privados y prebodas.", en: "Garden bar in an old shoe factory in the old town of Ciutadella, Menorca. Drinks, DJs on Fridays and Saturdays, private events and pre-wedding parties.", fr: "Bar-jardin dans une ancienne fabrique de chaussures de la vieille ville de Ciutadella, Minorque. Boissons, DJ le vendredi et le samedi, événements privés et pré-mariages." },
-    idioma:       { es: "Idioma", en: "Language", fr: "Langue" },
-    navCarta:     { es: "Carta", en: "Menu", fr: "Carte" },
-    navEventos:   { es: "Eventos", en: "Events", fr: "Événements" },
-    navFotos:     { es: "Fotos", en: "Photos", fr: "Photos" },
-    navDonde:     { es: "Dónde", en: "Find us", fr: "Accès" },
-    verCarta:     { es: "Ver la carta", en: "See the menu", fr: "Voir la carte" },
-    comoLlegar:   { es: "Cómo llegar", en: "Get directions", fr: "Itinéraire" },
-    puertaTitulo: { es: "No te vas a creer lo que hay detrás de esta puerta", en: "You won't believe what's behind this door", fr: "Vous n'allez pas croire ce qui se cache derrière cette porte" },
-    puertaIntro:  { es: "Desde la calle parece una entrada más del casco antiguo: una pared de piedra, una puerta de cristal y un pasillo estrecho.", en: "From the street it looks like any other doorway in the old town: a stone wall, a glass door and a narrow corridor.", fr: "Depuis la rue, on dirait une entrée comme les autres de la vieille ville : un mur de pierre, une porte vitrée et un couloir étroit." },
-    revelado:     { es: "Sorpresa: el jardín interior más grande de Menorca, a la sombra de un ficus enorme.", en: "Surprise: the largest inner garden in Menorca, in the shade of a huge ficus tree.", fr: "Surprise : le plus grand jardin intérieur de Minorque, à l'ombre d'un immense ficus." },
-    abrePuerta:   { es: "Abre la puerta", en: "Open the door", fr: "Ouvrez la porte" },
-    cerrarPuerta: { es: "Cerrar la puerta", en: "Close the door", fr: "Fermer la porte" },
-    puertaPie:    { es: "Esto es lo que hay detrás", en: "This is what's behind it", fr: "Voilà ce qui se cache derrière" },
-    cartaTitulo:  { es: "La carta", en: "The menu", fr: "La carte" },
-    cartaSecciones:{ es: "Secciones de la carta", en: "Menu sections", fr: "Rubriques de la carte" },
-    notaPrecios:  { es: "Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.", en: "Prices in euros, VAT included. If you have any allergies, please ask at the bar.", fr: "Prix en euros, TVA incluse. En cas d'allergie, demandez-nous au bar." },
-    pdf:          { es: "Descargar la carta en PDF", en: "Download the menu (PDF)", fr: "Télécharger la carte (PDF)" },
-    eventosTitulo:{ es: "Eventos y prebodas", en: "Events & pre-wedding parties", fr: "Événements et pré-mariages" },
-    eventosAlt:   { es: "También puedes escribirnos directamente a", en: "You can also email us at", fr: "Vous pouvez aussi nous écrire à" },
-    fFecha:       { es: "Fecha", en: "Date", fr: "Date" },
-    fPersonas:    { es: "Número de personas", en: "Number of guests", fr: "Nombre de personnes" },
-    fTipo:        { es: "Tipo de evento", en: "Type of event", fr: "Type d'événement" },
-    fElige:       { es: "Elige uno", en: "Choose one", fr: "Choisissez" },
-    fNombre:      { es: "Tu nombre", en: "Your name", fr: "Votre nom" },
-    fContacto:    { es: "Email o teléfono", en: "Email or phone", fr: "E-mail ou téléphone" },
-    fMensaje:     { es: "Algo más que debamos saber", en: "Anything else we should know", fr: "Autre chose à nous dire" },
-    fMensajePh:   { es: "Horario, si queréis DJ, comida…", en: "Timing, whether you'd like a DJ, food…", fr: "Horaires, DJ, repas…" },
-    fEnviar:      { es: "Enviar solicitud", en: "Send request", fr: "Envoyer la demande" },
-    fAyuda:       { es: "Se abrirá tu aplicación de correo con todo ya escrito; solo tienes que darle a enviar.", en: "Your email app will open with everything filled in; just hit send.", fr: "Votre messagerie s'ouvrira avec tout déjà rempli ; il ne reste plus qu'à envoyer." },
-    fFalta:       { es: "Falta un dato:", en: "Missing:", fr: "Il manque :" },
-    fAbierto:     { es: "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a", en: "Your email app should now be open with your request. If not, email us at", fr: "Votre messagerie devrait s'ouvrir avec la demande. Sinon, écrivez-nous à" },
-    mAsunto:      { es: "{tipo} el {fecha} ({n} personas)", en: "{tipo} on {fecha} ({n} guests)", fr: "{tipo} le {fecha} ({n} personnes)" },
-    mSaludo:      { es: "Hola,\n\nOs escribo para un evento en La Margarete:", en: "Hello,\n\nI'm writing about an event at La Margarete:", fr: "Bonjour,\n\nJe vous écris pour un événement à La Margarete :" },
-    djTitulo:     { es: "Viernes y sábados, DJ", en: "DJs on Fridays and Saturdays", fr: "DJ le vendredi et le samedi" },
-    djIntro:      { es: "Cuando cae la noche, la antigua fábrica se llena.", en: "When night falls, the old factory fills up.", fr: "À la nuit tombée, l'ancienne fabrique se remplit." },
-    djAlt:        { es: "Noche de DJ en La Margarete, con la barra llena", en: "DJ night at La Margarete, with a packed bar", fr: "Soirée DJ à La Margarete, bar bondé" },
-    seguirIg:     { es: "Seguir en Instagram", en: "Follow us on Instagram", fr: "Suivez-nous sur Instagram" },
-    fabricaTitulo:{ es: "La antigua fábrica", en: "The old factory", fr: "L'ancienne fabrique" },
-    estampitaAlt: { es: "Estampita antigua de una actriz, pegada en una ventana de la fábrica", en: "Old picture of an actress stuck on a factory window", fr: "Ancienne image d'une actrice collée sur une fenêtre de la fabrique" },
-    dondeTitulo:  { es: "Dónde estamos", en: "Find us", fr: "Où nous trouver" },
-    mapaTitulo:   { es: "En pleno casco antiguo", en: "Right in the old town", fr: "En pleine vieille ville" },
-    buscaCartel:  { es: "Busca este cartel", en: "Look for this sign", fr: "Cherchez cette enseigne" },
-    abrirMaps:    { es: "Abrir en Google Maps", en: "Open in Google Maps", fr: "Ouvrir dans Google Maps" },
-    redes:        { es: "Redes sociales", en: "Social media", fr: "Réseaux sociaux" },
+    titulo:       { es: "La Margarete · Jardín de copas en Ciutadella, Menorca", ca: "La Margarete · Jardí de copes a Ciutadella, Menorca", en: "La Margarete · Garden bar in Ciutadella, Menorca", fr: "La Margarete · Bar-jardin à Ciutadella, Minorque" },
+    descripcion:  { es: "Bar con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, DJs los viernes y sábados, eventos privados y prebodas.", ca: "Bar amb jardí en una antiga fàbrica de sabates del nucli antic de Ciutadella, Menorca. Carta, DJ els divendres i dissabtes, esdeveniments privats i prebodes.", en: "Garden bar in an old shoe factory in the old town of Ciutadella, Menorca. Drinks, DJs on Fridays and Saturdays, private events and pre-wedding parties.", fr: "Bar-jardin dans une ancienne fabrique de chaussures de la vieille ville de Ciutadella, Minorque. Boissons, DJ le vendredi et le samedi, événements privés et pré-mariages." },
+    idioma:       { es: "Idioma", ca: "Idioma", en: "Language", fr: "Langue" },
+    navCarta:     { es: "Carta", ca: "Carta", en: "Menu", fr: "Carte" },
+    navEventos:   { es: "Eventos", ca: "Esdeveniments", en: "Events", fr: "Événements" },
+    navFotos:     { es: "Fotos", ca: "Fotos", en: "Photos", fr: "Photos" },
+    navDonde:     { es: "Dónde", ca: "On som", en: "Find us", fr: "Accès" },
+    verCarta:     { es: "Ver la carta", ca: "Veure la carta", en: "See the menu", fr: "Voir la carte" },
+    comoLlegar:   { es: "Cómo llegar", ca: "Com arribar-hi", en: "Get directions", fr: "Itinéraire" },
+    puertaTitulo: { es: "No te vas a creer lo que hay detrás de esta puerta", ca: "No et creuràs el que hi ha darrere aquesta porta", en: "You won't believe what's behind this door", fr: "Vous n'allez pas croire ce qui se cache derrière cette porte" },
+    puertaIntro:  { es: "Desde la calle parece una entrada más del casco antiguo: una pared de piedra, una puerta de cristal y un pasillo estrecho.", ca: "Des del carrer sembla una entrada més del nucli antic: una paret de pedra, una porta de vidre i un passadís estret.", en: "From the street it looks like any other doorway in the old town: a stone wall, a glass door and a narrow corridor.", fr: "Depuis la rue, on dirait une entrée comme les autres de la vieille ville : un mur de pierre, une porte vitrée et un couloir étroit." },
+    revelado:     { es: "Sorpresa: el jardín interior más grande de Menorca, a la sombra de un ficus enorme.", ca: "Sorpresa: el jardí interior més gran de Menorca, a l'ombra d'un ficus enorme.", en: "Surprise: the largest inner garden in Menorca, in the shade of a huge ficus tree.", fr: "Surprise : le plus grand jardin intérieur de Minorque, à l'ombre d'un immense ficus." },
+    abrePuerta:   { es: "Abre la puerta", ca: "Obre la porta", en: "Open the door", fr: "Ouvrez la porte" },
+    cerrarPuerta: { es: "Cerrar la puerta", ca: "Tanca la porta", en: "Close the door", fr: "Fermer la porte" },
+    puertaPie:    { es: "Esto es lo que hay detrás", ca: "Això és el que hi ha darrere", en: "This is what's behind it", fr: "Voilà ce qui se cache derrière" },
+    cartaTitulo:  { es: "La carta", ca: "La carta", en: "The menu", fr: "La carte" },
+    cartaSecciones:{ es: "Secciones de la carta", ca: "Seccions de la carta", en: "Menu sections", fr: "Rubriques de la carte" },
+    notaPrecios:  { es: "Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.", ca: "Preus en euros, IVA inclòs. Si tens alguna al·lèrgia, demana-ho a la barra.", en: "Prices in euros, VAT included. If you have any allergies, please ask at the bar.", fr: "Prix en euros, TVA incluse. En cas d'allergie, demandez-nous au bar." },
+    pdf:          { es: "Descargar la carta en PDF", ca: "Descarregar la carta en PDF", en: "Download the menu (PDF)", fr: "Télécharger la carte (PDF)" },
+    eventosTitulo:{ es: "Eventos y prebodas", ca: "Esdeveniments i prebodes", en: "Events & pre-wedding parties", fr: "Événements et pré-mariages" },
+    eventosAlt:   { es: "También puedes escribirnos directamente a", ca: "També ens pots escriure directament a", en: "You can also email us at", fr: "Vous pouvez aussi nous écrire à" },
+    fFecha:       { es: "Fecha", ca: "Data", en: "Date", fr: "Date" },
+    fPersonas:    { es: "Número de personas", ca: "Nombre de persones", en: "Number of guests", fr: "Nombre de personnes" },
+    fTipo:        { es: "Tipo de evento", ca: "Tipus d'esdeveniment", en: "Type of event", fr: "Type d'événement" },
+    fElige:       { es: "Elige uno", ca: "Tria'n un", en: "Choose one", fr: "Choisissez" },
+    fNombre:      { es: "Tu nombre", ca: "El teu nom", en: "Your name", fr: "Votre nom" },
+    fContacto:    { es: "Email o teléfono", ca: "Correu o telèfon", en: "Email or phone", fr: "E-mail ou téléphone" },
+    fMensaje:     { es: "Algo más que debamos saber", ca: "Alguna cosa més que hàgim de saber", en: "Anything else we should know", fr: "Autre chose à nous dire" },
+    fMensajePh:   { es: "Horario, si queréis DJ, comida…", ca: "Horari, si voleu DJ, menjar…", en: "Timing, whether you'd like a DJ, food…", fr: "Horaires, DJ, repas…" },
+    fEnviar:      { es: "Enviar solicitud", ca: "Enviar sol·licitud", en: "Send request", fr: "Envoyer la demande" },
+    fAyuda:       { es: "Se abrirá tu aplicación de correo con todo ya escrito; solo tienes que darle a enviar.", ca: "S'obrirà la teva aplicació de correu amb tot ja escrit; només has de donar-li a enviar.", en: "Your email app will open with everything filled in; just hit send.", fr: "Votre messagerie s'ouvrira avec tout déjà rempli ; il ne reste plus qu'à envoyer." },
+    fFalta:       { es: "Falta un dato:", ca: "Falta una dada:", en: "Missing:", fr: "Il manque :" },
+    fAbierto:     { es: "Se ha abierto tu correo con la solicitud. Si no se abre, escríbenos a", ca: "S'ha obert el teu correu amb la sol·licitud. Si no s'obre, escriu-nos a", en: "Your email app should now be open with your request. If not, email us at", fr: "Votre messagerie devrait s'ouvrir avec la demande. Sinon, écrivez-nous à" },
+    mAsunto:      { es: "{tipo} el {fecha} ({n} personas)", ca: "{tipo} el {fecha} ({n} persones)", en: "{tipo} on {fecha} ({n} guests)", fr: "{tipo} le {fecha} ({n} personnes)" },
+    mSaludo:      { es: "Hola,\n\nOs escribo para un evento en La Margarete:", ca: "Hola,\\n\\nUs escric per a un esdeveniment a La Margarete:", en: "Hello,\n\nI'm writing about an event at La Margarete:", fr: "Bonjour,\n\nJe vous écris pour un événement à La Margarete :" },
+    djTitulo:     { es: "Viernes y sábados, DJ", ca: "Divendres i dissabtes, DJ", en: "DJs on Fridays and Saturdays", fr: "DJ le vendredi et le samedi" },
+    djIntro:      { es: "Cuando cae la noche, la antigua fábrica se llena.", ca: "Quan cau la nit, l'antiga fàbrica s'omple.", en: "When night falls, the old factory fills up.", fr: "À la nuit tombée, l'ancienne fabrique se remplit." },
+    djAlt:        { es: "Noche de DJ en La Margarete, con la barra llena", ca: "Nit de DJ a La Margarete, amb la barra plena", en: "DJ night at La Margarete, with a packed bar", fr: "Soirée DJ à La Margarete, bar bondé" },
+    seguirIg:     { es: "Seguir en Instagram", ca: "Segueix-nos a Instagram", en: "Follow us on Instagram", fr: "Suivez-nous sur Instagram" },
+    fabricaTitulo:{ es: "La antigua fábrica", ca: "L'antiga fàbrica", en: "The old factory", fr: "L'ancienne fabrique" },
+    estampitaAlt: { es: "Estampita antigua de una actriz, pegada en una ventana de la fábrica", ca: "Estampeta antiga d'una actriu, aferrada a una finestra de la fàbrica", en: "Old picture of an actress stuck on a factory window", fr: "Ancienne image d'une actrice collée sur une fenêtre de la fabrique" },
+    dondeTitulo:  { es: "Dónde estamos", ca: "On som", en: "Find us", fr: "Où nous trouver" },
+    mapaTitulo:   { es: "En pleno casco antiguo", ca: "En ple nucli antic", en: "Right in the old town", fr: "En pleine vieille ville" },
+    buscaCartel:  { es: "Busca este cartel", ca: "Cerca aquest cartell", en: "Look for this sign", fr: "Cherchez cette enseigne" },
+    abrirMaps:    { es: "Abrir en Google Maps", ca: "Obrir a Google Maps", en: "Open in Google Maps", fr: "Ouvrir dans Google Maps" },
+    redes:        { es: "Redes sociales", ca: "Xarxes socials", en: "Social media", fr: "Réseaux sociaux" },
     // Etiquetas de precio de la carta
-    "Copa":       { es: "Copa", en: "Glass", fr: "Verre" },
-    "Botella":    { es: "Botella", en: "Bottle", fr: "Bouteille" },
-    "Copa ancha": { es: "Copa ancha", en: "Large glass", fr: "Grand verre" },
-    "Jarra de 1 litro": { es: "Jarra de 1 litro", en: "1-litre jug", fr: "Pichet d'1 litre" },
-    "Chupito":    { es: "Chupito", en: "Shot", fr: "Shot" },
-    "Combinado":  { es: "Combinado", en: "With mixer", fr: "Long drink" },
+    "Copa":       { es: "Copa", ca: "Copa", en: "Glass", fr: "Verre" },
+    "Botella":    { es: "Botella", ca: "Botella", en: "Bottle", fr: "Bouteille" },
+    "Copa ancha": { es: "Copa ancha", ca: "Copa ampla", en: "Large glass", fr: "Grand verre" },
+    "Jarra de 1 litro": { es: "Jarra de 1 litro", ca: "Gerra d'1 litre", en: "1-litre jug", fr: "Pichet d'1 litre" },
+    "Chupito":    { es: "Chupito", ca: "Xopet", en: "Shot", fr: "Shot" },
+    "Combinado":  { es: "Combinado", ca: "Combinat", en: "With mixer", fr: "Long drink" },
   };
-  const IDIOMAS = ["es", "en", "fr"];
-  const LOCALE = { es: "es-ES", en: "en-GB", fr: "fr-FR" };
+  const IDIOMAS = ["ca", "es", "en", "fr"];
+  const LOCALE = { es: "es-ES", ca: "ca-ES", en: "en-GB", fr: "fr-FR" };
   let L = "es";
 
   // Texto en el idioma actual (si falta, español)
@@ -469,7 +472,8 @@
     try { const g = localStorage.getItem("idioma"); if (IDIOMAS.includes(g)) return g; } catch (e) {}
     for (const n of (navigator.languages || [navigator.language || "es"])) {
       const c = String(n).slice(0, 2).toLowerCase();
-      if (c === "es" || c === "ca" || c === "gl" || c === "eu") return "es";
+      // Móviles en catalán o en castellano: la web sale en catalán (con botón para pasar a castellano)
+      if (c === "ca" || c === "es" || c === "gl" || c === "eu") return "ca";
       if (c === "fr") return "fr";
       if (c === "en") return "en";
     }
