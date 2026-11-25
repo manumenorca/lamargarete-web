@@ -171,7 +171,15 @@ window.MARGARETE = {
     {
       seccion: { es: "Refrescos y agua", ca: "Refrescs i aigua", en: "Soft drinks & water", fr: "Sodas et eau" },
       platos: [
-        // Pendiente: lista y precios (agua, refrescos, zumos, tónica...). Vacío = no sale.
+        { titulo: { es: "Agua", ca: "Aigua", en: "Water", fr: "Eau" } },
+        { nombre: { es: "Agua sin gas", ca: "Aigua sense gas", en: "Still water", fr: "Eau plate" }, precio: 3 },
+        { nombre: { es: "Vichy con gas", ca: "Vichy amb gas", en: "Vichy sparkling water", fr: "Vichy gazeuse" }, precio: 3 },
+        { titulo: { es: "Refrescos", ca: "Refrescs", en: "Soft drinks", fr: "Sodas" } },
+        { nombre: { es: "Coca-Cola, Cola Zero, 7UP, naranja, limón, Nestea, Aquarius", ca: "Coca-Cola, Cola Zero, 7UP, taronja, llimona, Nestea, Aquarius", en: "Coca-Cola, Cola Zero, 7UP, orange, lemon, Nestea, Aquarius", fr: "Coca-Cola, Cola Zero, 7UP, orange, citron, Nestea, Aquarius" }, precio: 3 },
+        { nombre: { es: "Tónica, tónica pink, ginger ale", ca: "Tònica, tònica pink, ginger ale", en: "Tonic, pink tonic, ginger ale", fr: "Tonic, tonic pink, ginger ale" }, precio: 3 },
+        { nombre: "Red Bull", precio: 3.5 },
+        { titulo: { es: "Zumos", ca: "Sucs", en: "Juices", fr: "Jus" } },
+        { nombre: { es: "Piña, naranja, melocotón, tomate", ca: "Pinya, taronja, préssec, tomàtiga", en: "Pineapple, orange, peach, tomato", fr: "Ananas, orange, pêche, tomate" }, precio: 3 },
       ],
     },
     {
