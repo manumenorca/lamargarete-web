@@ -125,7 +125,11 @@
   .eventos-priv .alt a{font-weight:700;text-decoration-color:var(--naranja);text-underline-offset:3px}
   form.solicitud{background:#fff;border-radius:18px;padding:clamp(1.25rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.25rem;box-shadow:0 1px 0 rgba(26,34,29,.08)}
   form.solicitud .ancho{grid-column:1/-1}
-  @media (max-width:480px){form.solicitud{grid-template-columns:1fr}}
+  @media (max-width:600px){form.solicitud{grid-template-columns:1fr}}
+  form.solicitud label{min-width:0}
+  form.solicitud input,form.solicitud select,form.solicitud textarea{min-width:0;max-width:100%;display:block;min-height:2.9rem}
+  form.solicitud input[type="date"]{-webkit-appearance:none;appearance:none;text-align:left}
+  form.solicitud input[type="date"]::-webkit-date-and-time-value{text-align:left}
   form.solicitud label{display:flex;flex-direction:column;gap:.35rem;font-weight:500;font-size:.95rem}
   form.solicitud input,form.solicitud select,form.solicitud textarea{font:inherit;font-size:1rem;padding:.7rem .8rem;border:1.5px solid rgba(26,34,29,.25);border-radius:10px;background:var(--cal);color:var(--tinta);width:100%}
   form.solicitud textarea{min-height:6rem;resize:vertical}
