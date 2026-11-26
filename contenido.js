@@ -21,7 +21,7 @@ window.MARGARETE = {
     fr: "Un bar-jardin caché dans la vieille ville de Ciutadella",
   },
   presentacion: {
-    es: "Dentro, la nave de la antigua fábrica de zapatos conserva sus vigas, el suelo original y restos de los soportes de las poleas que, con correas, movían las máquinas de la zapatería. Fuera, el jardín interior más grande de Menorca, a la sombra de un ficus enorme.", ca: "A dins, la nau de l'antiga fàbrica de sabates conserva les bigues, el terra original i restes dels suports de les politges que, amb corretges, movien les màquines de la sabateria. A fora, el jardí interior més gran de Menorca, a l'ombra d'un ficus enorme.",
+    es: "Dentro, la nave de la antigua fábrica de zapatos conserva sus vigas, el suelo original y restos de los soportes de las poleas que, con correas, movían las máquinas de la zapatería. Fuera, el jardín interior más grande de Menorca, a la sombra de un ficus enorme.", ca: "A dins, la nau de l'antiga fàbrica de sabates conserva les bigues, les rajoles originals i restes dels suports de les politges que, amb corretges, movien les màquines de la sabateria. A fora, el jardí interior més gran de Menorca, a l'ombra d'un ficus enorme.",
     en: "Inside, the old shoe factory still has its beams, its original floor and the remains of the pulley brackets whose belts once drove the shoemaking machines. Outside lies the largest inner garden in Menorca, in the shade of a huge ficus tree.",
     fr: "À l'intérieur, l'ancienne fabrique de chaussures a gardé ses poutres, son sol d'origine et les restes des supports de poulies dont les courroies actionnaient les machines. Dehors, le plus grand jardin intérieur de Minorque, à l'ombre d'un immense ficus.",
   },
@@ -139,7 +139,7 @@ window.MARGARETE = {
       ],
     },
     {
-      seccion: { es: "Rones", ca: "Rons", en: "Rum", fr: "Rhums" },
+      seccion: { es: "Rones", ca: "Roms", en: "Rum", fr: "Rhums" },
       platos: [
         { nombre: "Cacique, Barceló, Santa Teresa, Brugal, Havana 3, Bacardí, Captain Morgan, Havana 7", precios: [["Chupito", 2.5], ["Copa ancha", 6.5], ["Combinado", 10]] },
         { nombre: "Zacapa 23", precios: [["Copa ancha", 10], ["Combinado", 15]] },
