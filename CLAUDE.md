@@ -6,7 +6,7 @@ Web estática de La Margarete, bar con jardín en Ciutadella (Menorca). Se publi
 - `contenido.js`: **todo lo que se cambia a menudo**: carta y precios, horario, aviso de arriba, agenda de DJs, redes sociales, fotos. Casi todos los cambios van aquí.
 - `index.html`: diseño (colores, tipografías, estructura). Tocar solo si Manu pide cambiar el aspecto.
 - `fotos/`: imágenes. Antes de subir una foto, redúcela a un máximo de 1600 px de ancho y calidad JPG ~80 para que la web cargue rápido.
-- `CNAME`: (se añadirá cuando lamargarete.com apunte a GitHub). Si existe, no tocar.
+- `CNAME`: dominio de la web (lo creó GitHub al poner el dominio en Settings → Pages). No tocar.
 
 ## Cómo hacer un cambio
 1. Edita `contenido.js` (respeta comas y comillas: es JavaScript).
