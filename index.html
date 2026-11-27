@@ -524,6 +524,7 @@
     seccionActual = i;
     [...pest.children].forEach((b, j) => { b.setAttribute("aria-selected", i === j); b.tabIndex = i === j ? 0 : -1; });
     lista.setAttribute("aria-label", T(secciones[i].seccion));
+    $("notaCarta").textContent = secciones[i].notaRedBull ? T(M.notaCarta) : "";
     lista.innerHTML = secciones[i].platos.map(p => p.titulo
       ? `<li class="subtitulo">${esc(T(p.titulo))}</li>`
       : `<li class="plato"><span class="n">${esc(T(p.nombre))}</span><span class="p">${p.precio != null ? euros(p.precio) : ""}</span>${T(p.desc) ? `<span class="d">${esc(T(p.desc))}</span>` : ""}${p.precios ? `<span class="varios">${p.precios.map(([t, v]) => `<span>${esc(etiqueta(t))}<b>${euros(v)}</b></span>`).join("")}</span>` : ""}</li>`).join("");
@@ -596,7 +597,6 @@
 
     // Carta
     [...pest.children].forEach((b, i) => b.textContent = T(secciones[i].seccion));
-    $("notaCarta").textContent = T(M.notaCarta);
     if (secciones.length) mostrar(seccionActual);
     if (M.cartaPdf) { const p = $("pdf"); p.querySelector("a").href = M.cartaPdf; p.hidden = false; }
 

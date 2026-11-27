@@ -69,28 +69,13 @@ window.MARGARETE = {
   // soloVerano: true -> esa sección solo se ve si temporadaVerano es true (cócteles y comida)
   temporadaVerano: false, // cócteles y comida: solo en verano (desde junio)
   cartaPdf: "", // sin PDF descargable: la carta está en la propia web
-  notaCarta: {
+  notaCarta: { // solo en las secciones con notaRedBull: true
     es: "Suplemento de Red Bull en las copas: +1 €.",
     ca: "Suplement de Red Bull a les copes: +1 €.",
     en: "Red Bull as a mixer in spirits: +€1.",
     fr: "Supplément Red Bull dans les alcools : +1 €.",
   },
   carta: [
-    {
-      seccion: { es: "Cervezas", ca: "Cerveses", en: "Beer", fr: "Bières" },
-      platos: [
-        { nombre: { es: "Caña mediana", ca: "Canya mitjana", en: "Draught beer, medium", fr: "Pression, moyenne" }, precio: 3 },
-        { nombre: { es: "Caña grande", ca: "Canya grossa", en: "Draught beer, large", fr: "Pression, grande" }, precio: 5 },
-        { titulo: { es: "Medianas (1/3)", ca: "Mitjanes (1/3)", en: "Bottles (33 cl)", fr: "Bouteilles (33 cl)" } },
-        { nombre: "Estrella", precio: 4 },
-        { nombre: "Estrella Galicia", precio: 4 },
-        { nombre: "Coronita", precio: 5 },
-        { nombre: "Alhambra", precio: 5 },
-        { nombre: "Voll-Damm", precio: 5 },
-        { nombre: { es: "Daura sin gluten", ca: "Daura sense gluten", en: "Daura (gluten-free)", fr: "Daura (sans gluten)" }, precio: 5 },
-        { nombre: { es: "Sin alcohol", ca: "Sense alcohol", en: "Alcohol-free", fr: "Sans alcool" }, precio: 4 },
-      ],
-    },
     {
       seccion: { es: "Vinos", ca: "Vins", en: "Wine", fr: "Vins" },
       platos: [
@@ -110,6 +95,21 @@ window.MARGARETE = {
       ],
     },
     {
+      seccion: { es: "Cervezas", ca: "Cerveses", en: "Beer", fr: "Bières" },
+      platos: [
+        { nombre: { es: "Caña mediana", ca: "Canya mitjana", en: "Draught beer, medium", fr: "Pression, moyenne" }, precio: 3 },
+        { nombre: { es: "Caña grande", ca: "Canya grossa", en: "Draught beer, large", fr: "Pression, grande" }, precio: 5 },
+        { titulo: { es: "Medianas (1/3)", ca: "Mitjanes (1/3)", en: "Bottles (33 cl)", fr: "Bouteilles (33 cl)" } },
+        { nombre: "Estrella", precio: 4 },
+        { nombre: "Estrella Galicia", precio: 4 },
+        { nombre: "Coronita", precio: 5 },
+        { nombre: "Alhambra", precio: 5 },
+        { nombre: "Voll-Damm", precio: 5 },
+        { nombre: { es: "Daura sin gluten", ca: "Daura sense gluten", en: "Daura (gluten-free)", fr: "Daura (sans gluten)" }, precio: 5 },
+        { nombre: { es: "Sin alcohol", ca: "Sense alcohol", en: "Alcohol-free", fr: "Sans alcool" }, precio: 4 },
+      ],
+    },
+    {
       seccion: { es: "Gin con limonada", ca: "Gin amb llimonada", en: "Gin & lemonade", fr: "Gin-limonade" },
       platos: [
         { nombre: { es: "Pequeño", ca: "Petit", en: "Small", fr: "Petit" }, precio: 4 },
@@ -119,6 +119,7 @@ window.MARGARETE = {
     },
     {
       seccion: { es: "Ginebras", ca: "Ginebres", en: "Gin", fr: "Gins" },
+      notaRedBull: true, // aquí sale la nota del Red Bull
       platos: [
         { titulo: { es: "Ginebras", ca: "Ginebres", en: "Gin", fr: "Gins" } },
         { nombre: "Seagram's", precio: 10 },
@@ -140,6 +141,7 @@ window.MARGARETE = {
     },
     {
       seccion: { es: "Rones", ca: "Roms", en: "Rum", fr: "Rhums" },
+      notaRedBull: true, // aquí sale la nota del Red Bull
       platos: [
         { nombre: "Cacique, Barceló, Santa Teresa, Brugal, Havana 3, Bacardí, Captain Morgan, Havana 7", precios: [["Chupito", 2.5], ["Copa ancha", 6.5], ["Combinado", 10]] },
         { nombre: "Zacapa 23", precios: [["Copa ancha", 10], ["Combinado", 15]] },
@@ -147,6 +149,7 @@ window.MARGARETE = {
     },
     {
       seccion: "Whiskies",
+      notaRedBull: true, // aquí sale la nota del Red Bull
       platos: [
         { nombre: "JB, Ballantine's, Cutty Sark, White Label, Passport, Southern Comfort, Jameson", precios: [["Chupito", 2.5], ["Copa ancha", 7.5], ["Combinado", 10]] },
         { nombre: "Jack Daniel's", precios: [["Copa ancha", 7.5], ["Combinado", 12]] },
@@ -157,6 +160,7 @@ window.MARGARETE = {
     },
     {
       seccion: "Vodkas",
+      notaRedBull: true, // aquí sale la nota del Red Bull
       platos: [
         { nombre: "Absolut, Smirnoff, Moskovskaya", precios: [["Chupito", 2.5], ["Copa ancha", 7.5], ["Combinado", 10]] },
       ],

@@ -29,5 +29,6 @@ La web está en **catalán, castellano, inglés y francés**. El catalán es imp
 - "Pon un aviso": rellenar `aviso` (p. ej. "Cerrado por vacaciones hasta el 15 de marzo"). Quitarlo = dejarlo en "".
 - Sesiones de DJ: añadir a `agenda` con fecha AAAA-MM-DD; las fechas pasadas se ocultan solas.
 - Precios: como número, sin "€" (5.5 = 5,50 €; la web lo formatea). Varios precios: `precios: [["Copa", 4], ["Botella", 20]]`. Subtítulo dentro de una sección: `{ titulo: "Blancos" }`.
+- Nota del Red Bull (`notaCarta`): solo sale en las secciones con `notaRedBull: true` (ginebras, rones, whiskies y vodkas).
 - Sin PDF de la carta: Manu no quiere carta descargable. Si manda un PDF nuevo, pasa los cambios a la carta de `contenido.js`, pero no lo publiques.
 - Cócteles y comida: solo en verano (desde junio). Para activarlos, `temporadaVerano: true` (y rellenar "Para comer"; una sección vacía no sale). En invierno, `false`.
