@@ -101,6 +101,8 @@
   .plato .varios b{font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--naranja-texto);margin-left:.35rem}
   .subtitulo{grid-column:1/-1;font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--ficus);padding-top:2rem;padding-bottom:.2rem;border-bottom:2px solid var(--ficus)}
   .subtitulo:first-child{padding-top:0}
+  #t-carta{margin-bottom:.4rem}
+  .carta-temporada{color:var(--naranja-texto);font-weight:700;font-size:1.1rem;letter-spacing:.02em}
   .nota-carta{margin-top:1.75rem;color:var(--gris);font-size:.93rem}
 
   /* ---------- Agenda ---------- */
@@ -319,6 +321,7 @@
       <div class="carta-cab">
         <div>
           <h2 id="t-carta" data-t="cartaTitulo"></h2>
+          <p class="carta-temporada" data-t="cartaSub"></p>
         </div>
         <div class="pestanas" role="tablist" id="pestanas"></div>
       </div>
@@ -412,7 +415,9 @@
     titulo:       { es: "La Margarete · Jardín de copas en Ciutadella, Menorca", ca: "La Margarete · Jardí de copes a Ciutadella, Menorca", en: "La Margarete · Garden bar in Ciutadella, Menorca", fr: "La Margarete · Bar-jardin à Ciutadella, Minorque" },
     descripcion:  { es: "Bar con jardín en una antigua fábrica de zapatos del casco antiguo de Ciutadella, Menorca. Carta, DJs los viernes y sábados, eventos privados y prebodas.", ca: "Bar amb jardí en una antiga fàbrica de sabates del nucli antic de Ciutadella, Menorca. Carta, DJ els divendres i dissabtes, esdeveniments privats i prebodes.", en: "Garden bar in an old shoe factory in the old town of Ciutadella, Menorca. Drinks, DJs on Fridays and Saturdays, private events and pre-wedding parties.", fr: "Bar-jardin dans une ancienne fabrique de chaussures de la vieille ville de Ciutadella, Minorque. Boissons, DJ le vendredi et le samedi, événements privés et pré-mariages." },
     idioma:       { es: "Idioma", ca: "Idioma", en: "Language", fr: "Langue" },
-    navCarta:     { es: "Carta", ca: "Carta", en: "Menu", fr: "Carte" },
+    // Textos de temporada: la versión "...Verano" se usa cuando temporadaVerano es true (contenido.js)
+    navCarta:     { es: "Bebidas", ca: "Begudes", en: "Drinks", fr: "Boissons" },
+    navCartaVerano:{ es: "Carta", ca: "Carta", en: "Menu", fr: "Carte" },
     navEventos:   { es: "Eventos", ca: "Esdeveniments", en: "Events", fr: "Événements" },
     navFotos:     { es: "Fotos", ca: "Fotos", en: "Photos", fr: "Photos" },
     navDonde:     { es: "Dónde", ca: "On som", en: "Find us", fr: "Accès" },
@@ -424,7 +429,10 @@
     abrePuerta:   { es: "Abre la puerta", ca: "Obre la porta", en: "Open the door", fr: "Ouvrez la porte" },
     cerrarPuerta: { es: "Cerrar la puerta", ca: "Tanca la porta", en: "Close the door", fr: "Fermer la porte" },
     puertaPie:    { es: "Esto es lo que hay detrás", ca: "Això és el que hi ha darrere", en: "This is what's behind it", fr: "Voilà ce qui se cache derrière" },
-    cartaTitulo:  { es: "La carta", ca: "La carta", en: "The menu", fr: "La carte" },
+    cartaTitulo:  { es: "Bebidas", ca: "Begudes", en: "Drinks", fr: "Boissons" },
+    cartaTituloVerano:{ es: "Bebidas y comida", ca: "Begudes i menjar", en: "Drinks & food", fr: "Boissons et cuisine" },
+    cartaSub:     { es: "Carta de invierno", ca: "Carta d'hivern", en: "Winter menu", fr: "Carte d'hiver" },
+    cartaSubVerano:{ es: "Carta de verano", ca: "Carta d'estiu", en: "Summer menu", fr: "Carte d'été" },
     cartaSecciones:{ es: "Secciones de la carta", ca: "Seccions de la carta", en: "Menu sections", fr: "Rubriques de la carte" },
     notaPrecios:  { es: "Precios en euros, IVA incluido. Si tienes alguna alergia, pregúntanos en barra.", ca: "Preus en euros, IVA inclòs. Si tens alguna al·lèrgia, demana-ho a la barra.", en: "Prices in euros, VAT included. If you have any allergies, please ask at the bar.", fr: "Prix en euros, TVA incluse. En cas d'allergie, demandez-nous au bar." },
     pdf:          { es: "Descargar la carta en PDF", ca: "Descarregar la carta en PDF", en: "Download the menu (PDF)", fr: "Télécharger la carte (PDF)" },
@@ -469,7 +477,7 @@
 
   // Texto en el idioma actual (si falta, español)
   const T = v => v == null ? "" : (typeof v === "object" && !Array.isArray(v)) ? (v[L] ?? v.es ?? "") : String(v);
-  const U = k => T(UI[k]);
+  const U = k => T((M.temporadaVerano && UI[k + "Verano"]) || UI[k]);
   const etiqueta = t => typeof t === "string" && UI[t] ? U(t) : T(t);
   const euros = v => typeof v === "number" ? v.toLocaleString(LOCALE[L], { style: "currency", currency: "EUR", minimumFractionDigits: Number.isInteger(v) ? 0 : 2 }) : esc(T(v));
 
